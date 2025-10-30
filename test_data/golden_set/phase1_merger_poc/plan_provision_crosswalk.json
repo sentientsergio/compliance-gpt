@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "phase": "Phase 2 - Crosswalk POC",
+    "source_vendor": "Relius",
+    "target_vendor": "Ascensus",
+    "source_provision_count": 3,
+    "target_provision_count": 2,
+    "mapping_method": "embeddings + LLM verification"
+  },
+  "summary": {
+    "exact_matches": 0,
+    "close_matches": 2,
+    "no_matches": 1,
+    "unmapped_sources": 3,
+    "unmapped_targets": 2
+  },
+  "mappings": [
+    {
+      "source_provision_id": "prov_relius_eligibility_001",
+      "source_category": "eligibility",
+      "source_section": "3.1",
+      "target_provision_id": "prov_ascensus_eligibility_001",
+      "target_category": "eligibility",
+      "target_section": "ENTRY DATES",
+      "cosine_similarity": 0.8412376534052273,
+      "llm_verification": {
+        "is_match": false,
+        "confidence": 0.7,
+        "match_type": "close",
+        "reasoning": "Both provisions address eligibility for participation in a retirement plan, but they focus on different aspects. The Relius provision specifies conditions for eligibility based on employee status, while the Ascensus provision outlines entry dates based on when eligibility requirements are met. Although they are related to eligibility, they do not govern the same feature directly.",
+        "variance_notes": "Relius focuses on the conditions of eligibility for employees, while Ascensus specifies when an employee can enter the plan after meeting those eligibility conditions. The options available in the adoption agreements also differ in focus, with Relius emphasizing exclusions and Ascensus detailing entry dates."
+      },
+      "all_candidates": [
+        {
+          "target_provision_id": "prov_ascensus_eligibility_001",
+          "cosine_similarity": 0.8412376534052273
+        },
+        {
+          "target_provision_id": "prov_ascensus_vesting_001",
+          "cosine_similarity": 0.6231469826506963
+        }
+      ]
+    },
+    {
+      "source_provision_id": "prov_relius_compensation_001",
+      "source_category": "compensation",
+      "source_section": "1.18",
+      "target_provision_id": "prov_ascensus_eligibility_001",
+      "target_category": "eligibility",
+      "target_section": "ENTRY DATES",
+      "cosine_similarity": 0.5475274590494456,
+      "llm_verification": {
+        "is_match": false,
+        "confidence": 0.2,
+        "match_type": "none",
+        "reasoning": "The provisions govern different aspects of retirement plans; one addresses compensation while the other pertains to eligibility entry dates. They do not cover the same plan feature or requirement.",
+        "variance_notes": "The source provision focuses on defining compensation for participants, while the target provision outlines entry dates for eligibility, indicating they serve distinct purposes within the plan structure."
+      },
+      "all_candidates": [
+        {
+          "target_provision_id": "prov_ascensus_eligibility_001",
+          "cosine_similarity": 0.5475274590494456
+        },
+        {
+          "target_provision_id": "prov_ascensus_vesting_001",
+          "cosine_similarity": 0.5424264407793025
+        }
+      ]
+    },
+    {
+      "source_provision_id": "prov_relius_vesting_001",
+      "source_category": "vesting",
+      "source_section": "b",
+      "target_provision_id": "prov_ascensus_vesting_001",
+      "target_category": "vesting",
+      "target_section": "8.B",
+      "cosine_similarity": 0.786749813093469,
+      "llm_verification": {
+        "is_match": false,
+        "confidence": 0.6,
+        "match_type": "close",
+        "reasoning": "Both provisions address vesting schedules, but the Relius provision is specific to general vesting rules while the Ascensus provision is specifically for Top-Heavy Plans. The Relius provision includes details about the vesting schedule based on Years of Service and conditions for non-forfeiture at Normal Retirement Age, which are not present in the Ascensus provision.",
+        "variance_notes": "The Relius provision provides a detailed vesting schedule based on service years and includes specific conditions for non-forfeiture, while the Ascensus provision only outlines minimum vesting requirements for Top-Heavy Plans without detailing the vesting schedule or conditions."
+      },
+      "all_candidates": [
+        {
+          "target_provision_id": "prov_ascensus_vesting_001",
+          "cosine_similarity": 0.786749813093469
+        },
+        {
+          "target_provision_id": "prov_ascensus_eligibility_001",
+          "cosine_similarity": 0.6277508083975429
+        }
+      ]
+    }
+  ],
+  "unmapped_sources": [
+    {
+      "provision_id": "prov_relius_eligibility_001",
+      "category": "eligibility",
+      "section": "3.1",
+      "reason": "No semantic match found in target"
+    },
+    {
+      "provision_id": "prov_relius_compensation_001",
+      "category": "compensation",
+      "section": "1.18",
+      "reason": "No semantic match found in target"
+    },
+    {
+      "provision_id": "prov_relius_vesting_001",
+      "category": "vesting",
+      "section": "b",
+      "reason": "No semantic match found in target"
+    }
+  ],
+  "unmapped_targets": [
+    {
+      "provision_id": "prov_ascensus_eligibility_001",
+      "category": "eligibility",
+      "section": "ENTRY DATES",
+      "reason": "No semantic match found in source"
+    },
+    {
+      "provision_id": "prov_ascensus_vesting_001",
+      "category": "vesting",
+      "section": "8.B",
+      "reason": "No semantic match found in source"
+    }
+  ]
+}
