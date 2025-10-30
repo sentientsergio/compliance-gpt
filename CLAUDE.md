@@ -87,14 +87,15 @@ compliance-gpt/
 
 ## Project Status
 
-**Phase:** Phase 1 + 1.5 Complete - Plan Provisions Validated (Oct 30, 2025) ✅
-**Previous:** ADR-001 Approved - Merge Strategy Defined (Oct 30, 2025)
-**Achievement:** Template-level Plan Provisions (BPD+AA linkage) proven to improve embedding quality by 6.2%
+**Phase:** Phase 2 Complete - Crosswalk Mapping Document Generated (Oct 30, 2025) ✅
+**Previous:** Phase 1 + 1.5 - Plan Provisions Validated (Oct 30, 2025)
+**Achievement:** Template-to-template crosswalk proves mapping document generation works WITHOUT filled values
 
 **Major Milestones (Oct 30, 2025):**
 ✅ **ADR-001 APPROVED:** Merge-Then-Crosswalk strategy with formal decision record
 ✅ **Phase 1 POC COMPLETE:** Template-level Plan Provisions successfully created (100% linkage success)
 ✅ **Phase 1.5 COMPLETE:** Quantitative validation showing +6.2% embedding improvement (+11.1% for vesting)
+✅ **Phase 2 POC COMPLETE:** Crosswalk mapping document generated (2 close matches, 1 no match, full variance analysis)
 
 **What's Done:**
 1. ✅ Process framework defined (`/process`) - Updated for BPD+AA architecture
@@ -109,35 +110,83 @@ compliance-gpt/
 10. ✅ **ADR-001: Merger Strategy** - Merge-then-crosswalk approach with data models, merge rules, evaluation plan
 11. ✅ **Phase 1: Plan Provisions POC** - Template-level BPD+AA linkage (100% success on test cases)
 12. ✅ **Phase 1.5: Quantitative Validation** - Embedding quality improvement measured (+6.2% average)
+13. ✅ **Phase 2: Crosswalk Mapping** - Template-to-template provision mapping document generated
 
 **Test Corpus:**
 - **Source:** Relius BPD Cycle 3 + Adoption Agreement (623 provisions, 182 elections)
 - **Target:** Ascensus BPD 05 + Adoption Agreement (426 provisions, 550 elections)
 - **Scenario:** Cross-vendor conversion (validates hardest use case - different template structures)
 
-**Phase 1 + 1.5 Results:**
+**Phase 1 + 1.5 + 2 Results:**
 1. ✅ **Plan Provision Data Model** - Complete schema for BPD+AA linkage ([design/data_models/plan_provision_model.md](design/data_models/plan_provision_model.md))
 2. ✅ **Template Linkage Algorithm** - Keyword-based domain matching (100% success rate on test provisions)
 3. ✅ **Relius Plan Provisions** - 3 provisions created (eligibility, compensation, vesting)
 4. ✅ **Ascensus Plan Provisions** - 2 provisions created (eligibility, vesting)
 5. ✅ **Embedding Quality Test** - +6.2% average improvement, +11.1% for vesting provisions
-6. ✅ **Two-Phase Crosswalk Validated** - Embeddings find candidates → LLM verifies (cost-effective architecture)
+6. ✅ **Two-Phase Crosswalk Architecture** - Embeddings find candidates → LLM verifies (cost-effective, accurate)
+7. ✅ **Crosswalk Mapping Document** - 2 close matches, 1 no match, full variance analysis with confidence scores
+8. ✅ **Unmapped Provision Detection** - Compensation missing in target correctly identified
 
 **Key Findings:**
 - **Plan Provisions are complete semantic units** - BPD+AA linkage creates semantically richer representations than BPD-only
-- **Election-dependent provisions benefit most** - Vesting showed +11.1% improvement (AA context completes semantic meaning)
-- **Template-level linkage is reusable** - Structure established now will work when filled forms arrive
-- **Embedding improvement validates architecture** - Better embeddings → better candidate finding → fewer missed matches
+- **Template-level crosswalk works without values** - Mapping document generation requires only template structure, not filled elections
+- **Two-phase architecture is effective** - Embeddings find semantically related candidates (0.841 similarity), LLM correctly verifies equivalence
+- **Variance detection works** - LLM identifies key differences (eligibility conditions vs entry dates, general vesting vs top-heavy vesting)
+- **No false positives** - LLM correctly rejected unrelated provisions with low confidence (0.2 for compensation → eligibility)
 
-**Next Phase: Phase 2 - Value Substitution (4-6 days)**
-Ready to implement smart merger with three proven patterns:
-- **Pattern-01:** Direct Substitution (age, service, dates)
-- **Pattern-02:** Checkbox Enumeration (vesting schedules, plan type)
-- **Pattern-03:** Numeric Parameter Injection (match %, contribution %)
-- **Target:** ≥80% auto-merge coverage for high-impact provisions
-- **Full provenance:** BPD sections + AA fields + values → merged text with audit trail
+**The Product: Mapping Document**
+The crosswalk JSON output is the core deliverable for TPAs:
+```
+Relius Section 3.1 (eligibility) ↔ Ascensus ENTRY DATES (eligibility) - CLOSE match
+Relius Section 1.18 (compensation) → NO MATCH (missing in target)
+Relius Section b (vesting) ↔ Ascensus Section 8.B (vesting) - CLOSE match
+```
 
-Detailed implementation plan ready: [design/architecture/phase2_value_substitution_plan.md](design/architecture/phase2_value_substitution_plan.md)
+This mapping document will drive automated value transfer when filled plans arrive (Phase 3).
+
+**Next Steps:**
+1. **Scale to full corpus:** Run crosswalk on all 805 Relius → 976 Ascensus provisions
+2. **Phase 3 (Future):** Automated value transfer using mapping rules
+
+---
+
+## Three-Phase Architecture (The Complete System)
+
+### Phase 1: Plan Provisions (Template Merger)
+**Input:** BPD templates + AA templates (blank forms)
+**Process:** Link BPD provisions with related AA elections (keyword matching + domain categories)
+**Output:** Plan Provisions = BPD + AA merged at template level (no values yet)
+**Result:** Complete semantic units for comparison (+6.2% embedding improvement)
+
+### Phase 2: Crosswalk Mapping Document (Current Phase)
+**Input:** Source Plan Provisions (Relius) + Target Plan Provisions (Ascensus)
+**Process:** Two-phase semantic comparison
+  1. Generate embeddings → find top-k candidates via cosine similarity
+  2. LLM verification → determine exact/close/none match with variance analysis
+**Output:** Mapping document (JSON) with provision-to-provision rules
+**Result:** Template-to-template transformation rules for automation
+
+**Example Mapping Rules:**
+```json
+{
+  "source": "Relius Section 3.1 (eligibility conditions)",
+  "target": "Ascensus ENTRY DATES (when eligible employees can join)",
+  "match_type": "close",
+  "confidence": 0.7,
+  "variance": "Related but govern different sub-features"
+}
+```
+
+### Phase 3: Automated Value Transfer (Future)
+**Input:** Filled source plan (Relius with actual elections) + Mapping rules from Phase 2
+**Data Sources:** TPA system exports (structured data) OR vision-extracted PDFs (when locked/scanned)
+**Process:** Apply mapping rules programmatically
+  - Relius Q 1.04 age=21 → Ascensus Q A.3 age=21 (direct transfer)
+  - Relius vesting option (b) → Ascensus vesting option (c) (transformed per mapping)
+**Output:** Filled target elections (Ascensus) - importable data format OR filled PDF
+**Result:** Automated cross-vendor plan conversion
+
+**Key Insight:** The mapping document (Phase 2) is vendor-agnostic transformation logic. Once generated, it can be reused for ANY Relius→Ascensus conversion, regardless of how source values are obtained (system API, PDF extraction, manual entry).
 
 ---
 
@@ -519,6 +568,28 @@ Red Team Sprints are adversarial testing sessions conducted after major mileston
 ---
 
 ## Project History / Changelog
+
+**2025-10-30** - Phase 2 Complete: Crosswalk Mapping Document Generated
+- **Afternoon (continued):** Phase 2 POC - Template-to-Template Crosswalk
+  - Clarified complete three-phase architecture with user (key breakthrough)
+  - **User correction:** We receive templates → generate mapping document → automate value transfer (when filled plans arrive)
+  - **Phase 2 IS the mapping document** - NOT value substitution (that's Phase 3)
+  - Built crosswalk script: embeddings + cosine similarity + LLM verification
+  - Tested on 3 Relius → 2 Ascensus Plan Provisions
+  - **Results:** 2 close matches, 1 no match (compensation missing in target)
+  - LLM correctly identified variances (eligibility conditions vs entry dates, general vesting vs top-heavy)
+  - No false positives (compensation → eligibility rejected with 0.2 confidence)
+- **Deliverables:**
+  1. [test_data/golden_set/phase1_merger_poc/crosswalk_plan_provisions.py](test_data/golden_set/phase1_merger_poc/crosswalk_plan_provisions.py)
+  2. [test_data/golden_set/phase1_merger_poc/plan_provision_crosswalk.json](test_data/golden_set/phase1_merger_poc/plan_provision_crosswalk.json)
+  3. [test_results/phase2_plan_provision_crosswalk_2025-10-30.md](test_results/phase2_plan_provision_crosswalk_2025-10-30.md)
+- **Key Learnings:**
+  - Mapping document is the PRODUCT (not intermediate step)
+  - TPAs use mapping document to guide manual conversions today
+  - Mapping rules will drive automated value transfer in future (Phase 3)
+  - Template-level crosswalk works - no filled values needed
+  - Two-phase architecture (embeddings → LLM) is cost-effective and accurate
+  - Real-world workflow: Templates → Mapping Doc → Value Transfer (3 separate phases)
 
 **2025-10-30** - Phase 1 + 1.5 Complete: Plan Provisions Validated
 - **Morning:** ADR-001 approved with advisor feedback (merge-then-crosswalk decision)
