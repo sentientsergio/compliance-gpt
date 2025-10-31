@@ -111,7 +111,7 @@ def generate_matched_provisions_csv(
 
     rows.sort(key=sort_key)
 
-    # Write CSV
+    # Write CSV with proper quoting
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
         fieldnames = [
             'relius_section', 'relius_title', 'relius_page', 'relius_category',
@@ -121,7 +121,7 @@ def generate_matched_provisions_csv(
             'match_quality', 'confidence', 'reasoning', 'variance_notes',
             'relius_provision_id', 'ascensus_provision_id'
         ]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         writer.writerows(rows)
 
@@ -192,7 +192,7 @@ def generate_unmapped_provisions_csv(
 
     rows.sort(key=sort_key)
 
-    # Write CSV
+    # Write CSV with proper quoting
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
         fieldnames = [
             'relius_section', 'relius_title', 'relius_page', 'relius_category',
@@ -202,7 +202,7 @@ def generate_unmapped_provisions_csv(
             'why_rejected', 'action_needed',
             'relius_provision_id', 'cosine_similarity'
         ]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         writer.writerows(rows)
 
@@ -265,7 +265,7 @@ def generate_new_ascensus_provisions_csv(
 
     rows.sort(key=sort_key)
 
-    # Write CSV
+    # Write CSV with proper quoting
     with open(output_path, 'w', newline='', encoding='utf-8') as f:
         fieldnames = [
             'ascensus_section', 'ascensus_title', 'ascensus_page', 'ascensus_category',
@@ -273,7 +273,7 @@ def generate_new_ascensus_provisions_csv(
             'action_needed',
             'ascensus_provision_id'
         ]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         writer.writerows(rows)
 
