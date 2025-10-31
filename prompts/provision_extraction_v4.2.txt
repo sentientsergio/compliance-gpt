@@ -1,0 +1,186 @@
+Provision Extraction Prompt v4.2
+
+Model: OpenAI GPT-5-nano (vision)
+Date: 2025-10-30
+Purpose: Extract substantive provision boundaries with enhanced provenance for audit trails.
+
+TASK: From THIS page only, return a JSON array of provisions and nothing else.
+
+PROVISION STRUCTURE (enhanced)
+
+Each provision MUST have exactly these fields:
+
+{
+  "section_number": "1.01",
+  "section_title": "Plan Name",
+  "section_path": "ARTICLE_I.1.01",
+  "provision_text": "Full text of the provision...",
+  "evidence_snippet": "First 120-200 chars of provision_text...",
+  "line_span": {"start": 5, "end": 12},
+  "provision_type": "definition|operational|regulatory",
+  "provision_classification": "heading|substantive",
+  "section_anchor_method": "direct|fallback|none"
+}
+
+* No IDs or page numbers. Post-processing will assign these based on array order.
+* Extract provisions in the order they appear on the page (top to bottom, left column before right).
+
+EXTRACTION GATE (substantive vs heading)
+
+Extract ONLY if ALL are true:
+
+1. Contains at least one complete sentence (ends with . or ;, not just a label).
+2. Conveys legal meaning (defines a term, sets a rule/procedure, or codifies a regulatory requirement).
+3. Not a header, footer, TOC line, divider, or "continued" stub.
+
+Do NOT extract if any are true:
+
+* All-caps/large/centered heading with no following sentences on this page.
+* "(continued)" without a new sentence starting on this page.
+* TOC/leader lines (e.g., Section 4.01 ..... 23).
+* Running heads/footers: page numbers, vendor marks (e.g., ©2020 Ascensus), document titles.
+
+Set provision_classification to:
+
+* "substantive" for extracted items (only these are output).
+* "heading" is never output (filter it out entirely).
+
+If nothing qualifies, return [].
+
+LAYOUT RULES (precision)
+
+1. Two-column pages: Read top→bottom within a column, then left column before right.
+2. Continued sections: If a page shows only a heading or "(continued)" without a sentence, output nothing for it. Extract when the body text (sentences) actually appears.
+3. Hyphenation: If a word splits at line end (distribu-\n tion), join it → distribution. Preserve real hyphens inside words.
+4. Whitespace: Preserve paragraph breaks as \n\n. Normalize multiple spaces to single.
+5. Tables/schedules: Include as text with line breaks; keep order and labels.
+
+PROVISION TYPES (primary categorization + precedence)
+
+Choose one primary type:
+
+* definition — uses "means" (or clear synonym) to define a term. Precedence over others when it's a pure definition.
+* operational — establishes rules/procedures/schedules (cues: shall/must/may/will).
+* regulatory — the main purpose is to codify compliance with a cited authority (e.g., IRC §401(a)(9), Treas. Reg.).
+  * If a provision sets rules and merely cites a statute, prefer operational.
+
+FIELD RULES (exactness)
+
+* section_number: Preserve exactly as printed if visible (e.g., 1.01, Section 2.03, Article III). If none is visible on this page, use "". Do not invent.
+* section_title: Include if printed near the section number (e.g., "Eligibility to Participate"), else "".
+* section_path: Normalized hierarchical path for deterministic ID generation.
+  * Format: "ARTICLE_{ROMAN}.{MAJOR}.{MINOR}" or "{MAJOR}.{MINOR}.{SUB}"
+  * Examples: "ARTICLE_I.1.01", "2.03", "4.02.A", "APPENDIX_A"
+  * Rules:
+    - Convert Roman numerals to standard form: I, II, III, IV (uppercase)
+    - Normalize section separators to dots: "Section 2-03" → "2.03"
+    - Preserve lettered subsections: "4.02(a)" → "4.02.A" (uppercase)
+    - If section_number is "", use nearest visible ancestor + ".UNK_{ordinal}"
+    - If no section visible at all, use "PAGE_{page_number}.UNK_{ordinal}"
+  * This field enables stable provision IDs across re-extractions.
+* provision_text: Verbatim sentences (and any subparagraphs) present on this page.
+  * Multi-paragraph provisions: include all paragraphs present on this page, separated by \n\n.
+  * If the provision clearly begins on this page and continues onto the next, include only the text visible on this page. Do not fabricate the remainder.
+  * If a single labeled section contains multiple stand-alone sentences under distinct labeled subparts ((a),(b),(i),(ii)) that each convey complete rules/definitions, extract them as separate provisions. Otherwise, keep them together as one provision.
+* evidence_snippet: First 120-200 characters of provision_text, anchored to the section start.
+  * Must be valid substring of provision_text
+  * Prefer complete sentences; break at sentence boundary if possible
+  * Remove extra whitespace, normalize to single line
+  * Purpose: Quick verification without reading full text
+* line_span: Approximate visual line numbers on the page where this provision appears.
+  * {"start": N, "end": M} where N = first line, M = last line (1-indexed)
+  * Count visible lines including whitespace, excluding headers/footers
+  * If uncertain, provide best estimate (precision not critical, but must be reasonable)
+* section_anchor_method: How the section was identified (for audit transparency)
+  * "direct" = section_number visible on this page
+  * "fallback" = no section_number visible, used nearest ancestor heading + ordinal
+  * "none" = no section structure visible, used page-based anchoring
+
+SPECIAL CASES (clarity)
+
+* AA-dependent language: If text says "as elected in the Adoption Agreement," extract it normally (no special handling here).
+* Headings without body: If the page shows ARTICLE IV – ... and no sentences, do not extract. Wait for the page where sentences begin.
+* Footnotes: Ignore numeric footnote markers unless they are integral to the sentence; do not extract standalone footnote blocks.
+
+OUTPUT FORMAT (strict)
+
+* Output raw JSON array only, no prose, no code fences.
+* Strict JSON: no trailing commas, proper quoting, valid UTF-8.
+* If no provisions qualify, output [].
+
+POSITIVE/NEGATIVE CUES (quick heuristics)
+
+Positive (favor extraction):
+
+* Contains "means", "shall/must/may/will", or phrases like "in accordance with Code/IRC §/Treas. Reg."
+* Mentions core plan concepts: eligibility, vesting, contributions, distributions, loans, limits.
+
+Negative (favor exclusion):
+
+* All-caps line with no period; centered title; TOC with dot leaders; running header/footer; "(continued)" lines.
+
+EXAMPLES (illustrative only; do not echo in output)
+
+Substantive (extract):
+
+{
+  "section_number": "2.01",
+  "section_title": "Eligibility Requirements",
+  "section_path": "ARTICLE_II.2.01",
+  "provision_text": "An Employee shall be eligible to participate upon attaining age 21 and completing one Year of Service as elected in the Adoption Agreement.",
+  "evidence_snippet": "An Employee shall be eligible to participate upon attaining age 21 and completing one Year of Service as elected in the Adoption Agreement.",
+  "line_span": {"start": 15, "end": 18},
+  "provision_type": "operational",
+  "provision_classification": "substantive",
+  "section_anchor_method": "direct"
+}
+
+Definition (extract):
+
+{
+  "section_number": "1.02",
+  "section_title": "Eligible Employee",
+  "section_path": "ARTICLE_I.1.02",
+  "provision_text": "\"Eligible Employee\" means any Employee who satisfies the age and service requirements elected in the Adoption Agreement.",
+  "evidence_snippet": "\"Eligible Employee\" means any Employee who satisfies the age and service requirements elected in the Adoption Agreement.",
+  "line_span": {"start": 8, "end": 10},
+  "provision_type": "definition",
+  "provision_classification": "substantive",
+  "section_anchor_method": "direct"
+}
+
+Regulatory (extract if the main purpose is compliance):
+
+{
+  "section_number": "4.01",
+  "section_title": "Required Minimum Distributions",
+  "section_path": "ARTICLE_IV.4.01",
+  "provision_text": "The Plan shall distribute required minimum distributions in accordance with IRC §401(a)(9) and the regulations thereunder. The required beginning date for distributions shall be April 1 of the calendar year following the later of: (a) the calendar year in which the Participant attains age 72, or (b) the calendar year in which the Participant retires.",
+  "evidence_snippet": "The Plan shall distribute required minimum distributions in accordance with IRC §401(a)(9) and the regulations thereunder.",
+  "line_span": {"start": 42, "end": 48},
+  "provision_type": "regulatory",
+  "provision_classification": "substantive",
+  "section_anchor_method": "direct"
+}
+
+Fallback anchoring (section number missing):
+
+{
+  "section_number": "",
+  "section_title": "",
+  "section_path": "ARTICLE_III.UNK_1",
+  "provision_text": "If a Participant terminates employment before satisfying the vesting schedule, amounts that are not vested will be forfeited and allocated as elected in the Adoption Agreement.",
+  "evidence_snippet": "If a Participant terminates employment before satisfying the vesting schedule, amounts that are not vested will be forfeited...",
+  "line_span": {"start": 28, "end": 31},
+  "provision_type": "operational",
+  "provision_classification": "substantive",
+  "section_anchor_method": "fallback"
+}
+
+Heading only (do NOT extract):
+
+ARTICLE IV
+REQUIRED MINIMUM DISTRIBUTIONS
+(continued on next page)
+
+Final reminder: Extract substantive provisions only. No IDs or page numbers (those are added by post-processing). Preserve extraction order. Output only a JSON array.

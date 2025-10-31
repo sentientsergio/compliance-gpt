@@ -1,0 +1,665 @@
+{
+  "document": "/tmp/relius_aa_page1_v5.1.pdf",
+  "doc_type": "AA",
+  "model": "gpt-5-mini",
+  "total_pages": 1,
+  "successful_pages": 1,
+  "failed_pages_count": 0,
+  "success_rate_percent": 100.0,
+  "extraction_time_seconds": 118.13,
+  "pages_per_second": 0.01,
+  "aas": [
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "",
+      "parent_section": null,
+      "local_ordinal": 1,
+      "field_label": null,
+      "provision_text": "CAUTION: Failure to properly fill out this Adoption Agreement may result in disqualification of the Plan.",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Name",
+      "parent_section": "1",
+      "local_ordinal": 1,
+      "field_label": "Name",
+      "provision_text": "Name: ________________________________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Address",
+      "parent_section": "1",
+      "local_ordinal": 2,
+      "field_label": "Address",
+      "provision_text": "Address: _____________________________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Street",
+      "parent_section": "1",
+      "local_ordinal": 3,
+      "field_label": "Street",
+      "provision_text": "Street _______________________________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "City",
+      "parent_section": "1",
+      "local_ordinal": 4,
+      "field_label": "City",
+      "provision_text": "City ____________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "State",
+      "parent_section": "1",
+      "local_ordinal": 5,
+      "field_label": "State",
+      "provision_text": "State ____________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Zip",
+      "parent_section": "1",
+      "local_ordinal": 6,
+      "field_label": "Zip",
+      "provision_text": "Zip ____________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Telephone",
+      "parent_section": "1",
+      "local_ordinal": 7,
+      "field_label": "Telephone",
+      "provision_text": "Telephone: ___________________________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Taxpayer Identification Number (TIN)",
+      "parent_section": "1",
+      "local_ordinal": 8,
+      "field_label": "Taxpayer Identification Number (TIN)",
+      "provision_text": "Taxpayer Identification Number (TIN): __________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "Employer's Fiscal Year ends",
+      "parent_section": "1",
+      "local_ordinal": 9,
+      "field_label": "Employer's Fiscal Year ends",
+      "provision_text": "Employer's Fiscal Year ends: _________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "PLAN NAME",
+      "parent_section": "4",
+      "local_ordinal": 1,
+      "field_label": "PLAN NAME",
+      "provision_text": "PLAN NAME: ________________________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "1",
+      "section_title": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR",
+      "parent_section": null,
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2",
+      "section_title": "TYPE OF ENTITY",
+      "parent_section": null,
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "TYPE OF ENTITY",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.a",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "a. [ ] Corporation (including tax-exempt or non-profit Corporation)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.b",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "b. [ ] Professional Service Corporation",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.c",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "c. [ ] S Corporation",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.d",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "d. [ ] Limited Liability Company that is taxed as:",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.d.1",
+      "section_title": "",
+      "parent_section": "2.d",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "1. [ ] a partnership or sole proprietorship",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.d.2",
+      "section_title": "",
+      "parent_section": "2.d",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "2. [ ] a Corporation",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.d.3",
+      "section_title": "",
+      "parent_section": "2.d",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "3. [ ] an S Corporation",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.e",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "e. [ ] Sole Proprietorship",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.f",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "f. [ ] Partnership (including limited liability)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.g",
+      "section_title": "",
+      "parent_section": "2",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "g. [ ] Other: ____________________________ (must be a legal entity recognized under federal income tax laws)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3",
+      "section_title": "AFFILIATED EMPLOYERS/PARTICIPATING EMPLOYERS",
+      "parent_section": null,
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "AFFILIATED EMPLOYERS/PARTICIPATING EMPLOYERS (Plan Sections 1.7 and 1.61). Is the Employer an Affiliated Employer (i.e., a member of a controlled group or an affiliated service group (within the meaning of Code \u00a7414(b), (c), (m) or (o)))?",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "AND, will any of the Affiliated Employers adopt the Plan as Participating Employers?",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "3. [ ] Yes (Complete a participation agreement for each Participating Employer.)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.a",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "a. [ ] No",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.b",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "b. [ ] Yes, the Employer is a member of (select one or both of 1. - 2. AND select one of 3. - 4. below):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.b.1",
+      "section_title": "",
+      "parent_section": "3.b",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "1. [ ] A controlled group",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.b.2",
+      "section_title": "",
+      "parent_section": "3.b",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "2. [ ] An affiliated-service group",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.c",
+      "section_title": "MULTIPLE EMPLOYER PLAN (Plan Article XIV)",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "MULTIPLE EMPLOYER PLAN (Plan Article XIV). Will any Employers who are not Affiliated Employers adopt this Plan as part of a multiple employer plan (MEP) arrangement?",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.c",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "c. [ ] No",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.d",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "d. [ ] Yes (Complete a participation agreement for each Participating Employer.)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "4",
+      "section_title": "",
+      "parent_section": "3",
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "4. [ ] No (The Plan could fail to satisfy the Code \u00a7410(b) coverage rules.)",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "4",
+      "section_title": "PLAN NAME",
+      "parent_section": null,
+      "local_ordinal": 0,
+      "field_label": null,
+      "provision_text": "PLAN NAME:",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    }
+  ],
+  "failed_pages": []
+}

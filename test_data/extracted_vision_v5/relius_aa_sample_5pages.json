@@ -1,0 +1,2450 @@
+{
+  "document": "/tmp/relius_aa_sample_5pages.pdf",
+  "doc_type": "AA",
+  "model": "gpt-5-mini",
+  "total_pages": 5,
+  "successful_pages": 5,
+  "failed_pages_count": 0,
+  "success_rate_percent": 100.0,
+  "extraction_time_seconds": 178.31,
+  "pages_per_second": 0.03,
+  "aas": [
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "CAUTION",
+      "parent_section": null,
+      "provision_text": "CAUTION: Failure to properly fill out this Adoption Agreement may result in disqualification of the Plan.",
+      "provision_type": "regulatory",
+      "status": "unknown",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "EMPLOYER INFORMATION",
+      "parent_section": null,
+      "provision_text": "(An amendment to the Adoption Agreement is not needed solely to reflect a change in this Employer Information Section.)",
+      "provision_type": "operational",
+      "status": "unknown",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "",
+      "section_title": "PLAN INFORMATION",
+      "parent_section": null,
+      "provision_text": "(An amendment to the Adoption Agreement is not needed solely to reflect a change in the information in Questions 9 through 10.)",
+      "provision_type": "operational",
+      "status": "unknown",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "1.",
+      "section_title": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR",
+      "parent_section": null,
+      "provision_text": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR\n\nName: ________________________________________________\n\nAddress: ________________________________________________\n\n__________________________________________ Street\n\n__________________________________________ City     __________________ State     ______ Zip\n\nTelephone: ___________________________________________\n\nTaxpayer Identification Number (TIN): __________________________\n\nEmployer's Fiscal Year ends: __________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.98
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.96
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 3,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 4,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 5,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 6,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 7,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.96
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 8,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "2.",
+      "section_title": "TYPE OF ENTITY",
+      "parent_section": null,
+      "provision_text": "TYPE OF ENTITY\n\na. [ ] Corporation (including tax-exempt or non-profit Corporation)\nb. [ ] Professional Service Corporation\nc. [ ] S Corporation\nd. [ ] Limited Liability Company that is taxed as:\n   1. [ ] a partnership or sole proprietorship\n   2. [ ] a Corporation\n   3. [ ] an S Corporation\ne. [ ] Sole Proprietorship\nf. [ ] Partnership (including limited liability)\ng. [ ] Other: ____________________ (must be a legal entity recognized under federal income tax laws)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 7,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 8,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 9,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 10,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 11,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "3.",
+      "section_title": "AFFILIATED EMPLOYERS/PARTICIPATING EMPLOYERS",
+      "parent_section": null,
+      "provision_text": "AFFILIATED EMPLOYERS/PARTICIPATING EMPLOYERS (Plan Sections 1.7 and 1.61). Is the Employer an Affiliated Employer (i.e., a member of a controlled group or an affiliated service group (within the meaning of Code \u00a7414(b), (c), (m) or (o)))?\n\na. [ ] No\nb. [ ] Yes, the Employer is a member of (select one or both of 1. - 2. AND select one of 3. - 4. below):\n   1. [ ] A controlled group\n   2. [ ] An affiliated service group\n\nAND, will any of the Affiliated Employers adopt the Plan as Participating Employers?\n3. [ ] Yes (Complete a participation agreement for each Participating Employer.)\n4. [ ] No (The Plan could fail to satisfy the Code \u00a7410(b) coverage rules.)\n\nMULTIPLE EMPLOYER PLAN (Plan Article XIV). Will any Employers who are not Affiliated Employers adopt this Plan as part of a multiple employer plan (MEP) arrangement?\nc. [ ] No\nd. [ ] Yes (Complete a participation agreement for each Participating Employer.)",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 7,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 8,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 1,
+      "section_number": "4.",
+      "section_title": "PLAN NAME",
+      "parent_section": null,
+      "provision_text": "PLAN NAME:\n\n______________________________________________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "10.",
+      "section_title": "ADMINISTRATOR'S NAME, ADDRESS AND TELEPHONE NUMBER",
+      "parent_section": null,
+      "provision_text": "ADMINISTRATOR'S NAME, ADDRESS AND TELEPHONE NUMBER (If none is named, the Employer will be the Administrator (Plan Section 1.5).) a. [ ] Employer (use Employer address and telephone number) b. [ ] The Committee appointed by the Employer (use Employer address and telephone number) c. [ ] Other: Name: __________________________ Address: __________________________ Street __________________________ City __________________ State ____ Zip ______ Telephone: __________________________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 4,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 5,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 6,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 7,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 8,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "11.",
+      "section_title": "TYPE OF PLAN (select one)",
+      "parent_section": null,
+      "provision_text": "TYPE OF PLAN (select one) a. [ ] 401(k) Plan. b. [X] Profit Sharing Plan. (under Current Contributions, may only elect 12.e., and/or 12.f.) c. [ ] Money Purchase Pension Plan. (under Current Contributions, may only elect 12.e., and/or 12.f.)",
+      "provision_type": "operational",
+      "status": "answered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": true,
+          "text_value": null,
+          "confidence": 0.98
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "5.",
+      "section_title": "PLAN STATUS",
+      "parent_section": null,
+      "provision_text": "PLAN STATUS a. [ ] New Plan b. [ ] Amendment and restatement of existing Plan CYCLE 3 RESTATEMENT (leave blank if not applicable) 1. [ ] This is an amendment and restatement to bring a plan into compliance with the legislative and regulatory changes set forth in IRS Notice 2017-37 (i.e., the 6-year pre-approved plan restatement cycle).",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "6.",
+      "section_title": "EFFECTIVE DATE (Plan Section 1.25)",
+      "parent_section": null,
+      "provision_text": "EFFECTIVE DATE (Plan Section 1.25) (complete a. if new plan; complete a. AND b. if an amendment and restatement) Initial Effective Date of Plan (except for restatements, cannot be earlier than the first day of the current Plan Year) a. __________ (enter month day, year) (hereinafter called the \"Effective Date\" unless 6.b. is entered below. NOTE: If the Effective Date of deferrals in the Plan is a different date than what is provided in this Section 6.a., Section 25.D.i. must also be completed. The Effective Date of 25.D.i. must be concurrent with or after the Effective Date in 6.a.) Restatement Effective Date. If this is an amendment and restatement, the effective date of the restatement (hereinafter called the \"Effective Date\") is: b. __________ (enter month day, year). NOTE: The restatement date may not be prior to the first day of the current Plan Year. Plan contains appropriate retroactive effective dates with respect to provisions for appropriate laws.)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "text",
+          "element_sequence": 1,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "7.",
+      "section_title": "PLAN YEAR (Plan Section 1.65)",
+      "parent_section": null,
+      "provision_text": "PLAN YEAR (Plan Section 1.65) means, except as otherwise provided in d. below: a. [ ] the calendar year b. [ ] the twelve-month period ending on __________ (e.g., June 30th) c. [ ] other: ________________________ (e.g., a 52/53 week year ending on the date nearest the last Friday in December). SHORT PLAN YEAR (Plan Section 1.76). Select below if there is a Short Plan Year (if the effective date of participation is based on a Plan Year, then coordinate with Question 15) (leave blank if not applicable): d. [ ] beginning on __ (enter month day, year; e.g., July 1, 2020) and ending on __ (enter month day, year).",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 3,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 5,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 7,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 8,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "8.",
+      "section_title": "VALUATION DATE (Plan Section 1.86)",
+      "parent_section": null,
+      "provision_text": "VALUATION DATE (Plan Section 1.86) means: a. [ ] every day that the Trustee (or Insurer), any transfer agent appointed by the Trustee (or Insurer) or the Employer, and any stock exchange used by such agent are open for business (daily valuation) b. [ ] the last day of each Plan Year c. [ ] the last day of each Plan Year half (semi-annual) d. [ ] the last day of each Plan Year quarter e. [ ] other (specify day or days): __________ (must be at least once each Plan Year) NOTE: The Plan always permits interim valuations.",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 6,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 2,
+      "section_number": "9.",
+      "section_title": "PLAN NUMBER (3-digit number for Form 5500 reporting)",
+      "parent_section": null,
+      "provision_text": "PLAN NUMBER (3-digit number for Form 5500 reporting) a. [ ] 001 b. [ ] 002 c. [ ] Other: __________",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 4,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "",
+      "section_title": "NOTE",
+      "parent_section": null,
+      "provision_text": "For 401(k) Plans - Unless otherwise specified in this Section, Elective Deferrals include Roth Elective Deferrals, after-tax voluntary Employee contributions, and rollover contributions; Matching includes QMACs; and Nonelective includes QNECs. \"ADP test safe harbor contributions\" (SH) (including those made pursuant to a QACA) and SIMPLE 401(k) contributions are subject to the exclusions for Elective Deferrals except as provided in Question 28.",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12",
+      "section_title": "CONTRIBUTION TYPES",
+      "parent_section": null,
+      "provision_text": "The selections made below must correspond with the selections made under the Contributions and Allocations Section of this Adoption Agreement.",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12",
+      "section_title": "FROZEN PLAN OR CONTRIBUTIONS HAVE BEEN SUSPENDED (Plan Section 4.1(c)) (optional)",
+      "parent_section": "12",
+      "provision_text": "FROZEN PLAN OR CONTRIBUTIONS HAVE BEEN SUSPENDED (Plan Section 4.1(c)) (optional)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12",
+      "section_title": "CURRENT CONTRIBUTIONS",
+      "parent_section": "12",
+      "provision_text": "The Plan permits the following contributions (select one or more):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12",
+      "section_title": "PRIOR CONTRIBUTIONS",
+      "parent_section": "12",
+      "provision_text": "The Plan used to permit, but no longer does, the following contributions (choose all that apply, if any):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.a",
+      "section_title": "",
+      "parent_section": "12",
+      "provision_text": "This is a frozen Plan (i.e., all contributions cease) (if this is a temporary suspension, select a.2):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.a.1",
+      "section_title": "",
+      "parent_section": "12.a",
+      "provision_text": "All contributions ceased as of, or prior to, the effective date of this amendment and restatement and the prior Plan provisions are not reflected in this Adoption Agreement (may enter effective date at 3. below and/or select prior contributions at i. \u2013 p. below (optional), skip questions 13-19 and 23-33)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.a.2",
+      "section_title": "",
+      "parent_section": "12.a",
+      "provision_text": "All contributions ceased or were suspended and the prior Plan provisions are reflected in this Adoption Agreement (must enter effective date at 3. below and select contributions at b. - h.)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.a.3",
+      "section_title": "Effective date",
+      "parent_section": "12.a",
+      "provision_text": "as of _________________ (effective date is optional unless a.2. has been selected above or this is the amendment or restatement to freeze the Plan).",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.97
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.b",
+      "section_title": "Elective Deferrals (Question 25). Also select below if Roth Elective Deferrals are permitted.",
+      "parent_section": "12",
+      "provision_text": "Elective Deferrals (Question 25). Also select below if Roth Elective Deferrals are permitted.",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.b.1",
+      "section_title": "Roth Elective Deferrals (Plan Section 1.73)",
+      "parent_section": "12.b",
+      "provision_text": "Roth Elective Deferrals (Plan Section 1.73)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.b.1.a",
+      "section_title": "",
+      "parent_section": "12.b.1",
+      "provision_text": "Special Effective Date for Roth Elective Deferrals (choose if applicable) ______________ (select if Roth deferrals added in addition to and after Elective Deferrals)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.c",
+      "section_title": "401(k) \"ADP test safe harbor contributions\" (Question 28)",
+      "parent_section": "12",
+      "provision_text": "401(k) \"ADP test safe harbor contributions\" (Question 28)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.c.1",
+      "section_title": "",
+      "parent_section": "12.c",
+      "provision_text": "401(k) \"ADP test safe harbor contributions\" (other than QACA \"ADP test safe harbor contributions\") (Match, Nonelective)",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.c.2",
+      "section_title": "",
+      "parent_section": "12.c",
+      "provision_text": "QACA \"ADP test safe harbor contributions\"",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.d",
+      "section_title": "Employer matching contributions (Question 29)",
+      "parent_section": "12",
+      "provision_text": "Employer matching contributions (Question 29)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.e",
+      "section_title": "Employer Nonelective Contributions (includes Employer Profit Sharing contributions, Money Purchase Pension Plan contributions and/or \"prevailing wage contributions\") (Questions 30-31)",
+      "parent_section": "12",
+      "provision_text": "Employer Nonelective Contributions (includes Employer Profit Sharing contributions, Money Purchase Pension Plan contributions and/or \"prevailing wage contributions\") (Questions 30-31)",
+      "provision_type": "operational",
+      "status": "answered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": true,
+          "text_value": null,
+          "confidence": 0.99
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.f",
+      "section_title": "Rollover contributions (Question 43)",
+      "parent_section": "12",
+      "provision_text": "Rollover contributions (Question 43)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.g",
+      "section_title": "After-tax voluntary Employee contributions (Question 44)",
+      "parent_section": "12",
+      "provision_text": "After-tax voluntary Employee contributions (Question 44)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.h",
+      "section_title": "SIMPLE 401(k) contributions (Plan Section 13.1) (may not be selected with 12.c., 12.d., 12.e., or 12.g.)",
+      "parent_section": "12",
+      "provision_text": "SIMPLE 401(k) contributions (Plan Section 13.1) (may not be selected with 12.c., 12.d., 12.e., or 12.g.)",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.i",
+      "section_title": "Pre-tax Elective Deferrals",
+      "parent_section": "12",
+      "provision_text": "Pre-tax Elective Deferrals",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.j",
+      "section_title": "Roth Elective Deferrals",
+      "parent_section": "12",
+      "provision_text": "Roth Elective Deferrals",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.k",
+      "section_title": "401(k) \"ADP test safe harbor contributions\"",
+      "parent_section": "12",
+      "provision_text": "401(k) \"ADP test safe harbor contributions\"",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.l",
+      "section_title": "Employer matching contributions",
+      "parent_section": "12",
+      "provision_text": "Employer matching contributions",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.m",
+      "section_title": "Employer Nonelective Contributions (includes Employer Profit Sharing contributions, Money Purchase Pension Plan contributions)",
+      "parent_section": "12",
+      "provision_text": "Employer Nonelective Contributions (includes Employer Profit Sharing contributions, Money Purchase Pension Plan contributions)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.n",
+      "section_title": "Rollover contributions",
+      "parent_section": "12",
+      "provision_text": "Rollover contributions",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.o",
+      "section_title": "After-tax voluntary Employee contributions",
+      "parent_section": "12",
+      "provision_text": "After-tax voluntary Employee contributions",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "12.p",
+      "section_title": "SIMPLE 401(k) contributions",
+      "parent_section": "12",
+      "provision_text": "SIMPLE 401(k) contributions",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "13",
+      "section_title": "ELIGIBLE EMPLOYEES",
+      "parent_section": null,
+      "provision_text": "ELIGIBLE EMPLOYEES (Plan Section 1.28) means all Employees (including Leased Employees) EXCEPT those Employees who are excluded below or elsewhere in the Plan:",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "13.a",
+      "section_title": "",
+      "parent_section": "13",
+      "provision_text": "No excluded Employees. There are no additional excluded Employees under the Plan (skip to Question 14).",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "13.b",
+      "section_title": "",
+      "parent_section": "13",
+      "provision_text": "Exclusions - same for all contribution types. The following Employees are not Eligible Employees for all contribution types (select one or more of e. \u2013 p. below):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "pdf_page": 3,
+      "section_number": "13.c",
+      "section_title": "",
+      "parent_section": "13",
+      "provision_text": "Exclusions - different exclusions apply. The following Employees are not Eligible Employees for the designated contribution types (select one or more of d. \u2013 p. below; also select column 1. OR all that apply of columns 2. - 4. for each exclusion selected at d. \u2013 n.) (may only be selected with 401(k) Plans):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "",
+      "section_title": "NOTE",
+      "parent_section": null,
+      "provision_text": "NOTE: If option k. \u2013 m. (part-time, temporary and/or seasonal exclusions) is selected, then any such excluded Employee actually completes 1 Year of Service, then such Employee will no longer be part of this excluded class. For this purpose, the Hours of Service method will be used for the 1 Year of Service override regardless of any contrary selection at Question 17.",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "14.a",
+      "section_title": "No age and service required",
+      "parent_section": "14",
+      "provision_text": "No age and service required. No age and service required for all contribution types (skip to Question 15).",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "14.b",
+      "section_title": "Eligibility - same for all contribution types",
+      "parent_section": "14",
+      "provision_text": "Eligibility - same for all contribution types. An Eligible Employee will be eligible to participate in the Plan for all contribution types upon satisfaction of the following (select one or more of e. - n. below):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "14.c",
+      "section_title": "Eligibility - different conditions apply",
+      "parent_section": "14",
+      "provision_text": "Eligibility - different conditions apply. An Eligible Employee will be eligible to participate in the Plan upon satisfaction of the following either for all contribution types or to the designated contribution type (select one or more of d. - n. below; also select column 1. OR all that apply of columns 2. - 4. for each condition selected at d. - m.) (may only be selected with 401(k) Plans):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "d",
+      "section_title": "No exclusions",
+      "parent_section": "Exclusions",
+      "provision_text": "No exclusions",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "e",
+      "section_title": "Union Employees (Plan Section 1.28(d))",
+      "parent_section": "Exclusions",
+      "provision_text": "Union Employees (Plan Section 1.28(d))",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "f",
+      "section_title": "Nonresident aliens (Plan Section 1.28(e))",
+      "parent_section": "Exclusions",
+      "provision_text": "Nonresident aliens (Plan Section 1.28(e))",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "g",
+      "section_title": "Highly Compensated Employees (Plan Section 1.41)",
+      "parent_section": "Exclusions",
+      "provision_text": "Highly Compensated Employees (Plan Section 1.41)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "h",
+      "section_title": "Leased Employees (Plan Section 1.49)",
+      "parent_section": "Exclusions",
+      "provision_text": "Leased Employees (Plan Section 1.49)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "i",
+      "section_title": "Residents of Puerto Rico",
+      "parent_section": "Exclusions",
+      "provision_text": "Residents of Puerto Rico",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "j",
+      "section_title": "Interns (Plan Section 1.28(g))",
+      "parent_section": "Exclusions",
+      "provision_text": "Interns (Plan Section 1.28(g))",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "k",
+      "section_title": "Part-time Employees (Plan Section 1.28(f))",
+      "parent_section": "Exclusions",
+      "provision_text": "Part-time Employees (Plan Section 1.28(f)) A part-time Employee is an Employee whose regularly scheduled service is less than ______ Hours of Service in the relevant eligibility computation period. See Note below.",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 6,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "l",
+      "section_title": "Temporary Employees (Plan Section 1.28(f))",
+      "parent_section": "Exclusions",
+      "provision_text": "Temporary Employees (Plan Section 1.28(f)) A temporary Employee is an Employee who is categorized as a temporary Employee on the Employer's payroll records. See Note below.",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "m",
+      "section_title": "Seasonal Employees (Plan Section 1.28(f))",
+      "parent_section": "Exclusions",
+      "provision_text": "Seasonal Employees (Plan Section 1.28(f)) A seasonal Employee is an Employee who is categorized as a seasonal Employee on the Employer's payroll records. See Note below.",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "n",
+      "section_title": "Other",
+      "parent_section": "Exclusions",
+      "provision_text": "Other:\n(must (1) be definitely determinable and may not be based on age or length of service (except in a manner consistent with k., l., and m. above) or level of Compensation, (2) be nondiscriminatory under Code \u00a7401(a)(4) and the regulations thereunder, and (3) if using the average benefits test to satisfy Code \u00a7410(b) coverage testing, must be a reasonable classification within the meaning of Regulation \u00a71.410(b)-4(b)).",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "o",
+      "section_title": "Other",
+      "parent_section": "Exclusions",
+      "provision_text": "Other: ____________ (must (1) specify contributions to which exclusions apply, (2) be definitely determinable and not based on age or length of service (except in a manner consistent with k., l., and m. above) or level of Compensation, (3) be nondiscriminatory under Code \u00a7401(a)(4) and the regulations thereunder, and (4) if using the average benefits test to satisfy Code \u00a7410(b) coverage testing, be a reasonable classification within the meaning of Regulation \u00a71.410(b)-4(b)).",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 6,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 4,
+      "section_number": "p",
+      "section_title": "Code \u00a7410(b)(6)(C) inclusion",
+      "parent_section": "Exclusions",
+      "provision_text": "Code \u00a7410(b)(6)(C) inclusion. The Code \u00a7410(b)(6)(C) exclusion set forth in Plan Section 1.28 will not apply with respect to the following (such Employees must still satisfy any applicable eligibility conditions) (select one):",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": "All Employees",
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 7,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 8,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "",
+      "section_title": "NOTE: For 401(k) Plans",
+      "parent_section": null,
+      "provision_text": "NOTE: For 401(k) Plans - Unless otherwise specified in this Section, Elective Deferrals include Roth Elective Deferrals, after-tax voluntary Employee contributions, and rollover contributions (unless otherwise selected at Question 43); Matching includes QMACs; and Nonelective includes QNECs. \"ADP test safe harbor contributions\" (SH) (including those made pursuant to a QACA) and SIMPLE 401(k) contributions are subject to the conditions for Elective Deferrals except as provided in Question 28.",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "",
+      "section_title": "NOTE regarding m. or n.",
+      "parent_section": null,
+      "provision_text": "NOTE: If m. or n. is selected, the condition must be an age or service requirement that is definitely determinable and may not exceed age 21 and for Elective Deferrals, 1 Year of Service; for Employer matching and/or Nonelective Contributions, may not exceed 2 Years of Service. If more than 1 Year of Service is required for Employer matching and/or Nonelective Contributions, 100% immediate vesting is required.",
+      "provision_type": "regulatory",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "",
+      "section_title": "NOTE regarding fractional year/service expression",
+      "parent_section": null,
+      "provision_text": "NOTE: If the service requirement is or includes a fractional year, then, except in a manner consistent with k., an Employee will not be required to complete any specified number of Hours of Service to receive credit for such fractional year. If expressed in months of service, then an Employee will not be required to complete any specified number of Hours of Service in a particular month, unless selected in k. above. In both cases, the Hours of Service method will be used for the 1 Year of Service override (e.g., options k. and l.) regardless of any contrary selection at Question 17.",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "",
+      "section_title": "NOTE: Year of Service definition",
+      "parent_section": null,
+      "provision_text": "NOTE: Year of Service means Period of Service if the elapsed time method is chosen.",
+      "provision_type": "definition",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "",
+      "section_title": "Waiver of conditions",
+      "parent_section": null,
+      "provision_text": "Waiver of conditions. The service and/or age requirements specified above will be waived in accordance with the following (leave blank if there are no waivers of conditions):",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": []
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "e.",
+      "section_title": "Age 20 1/2",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "Age 20 1/2",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "f.",
+      "section_title": "Age 21",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "Age 21",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "g.",
+      "section_title": "Age ______ (may not exceed 21)",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "Age ______ (may not exceed 21)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "h.",
+      "section_title": "_______ (not to exceed 12) months of service (elapsed time)",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "_______ (not to exceed 12) months of service (elapsed time)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "i.",
+      "section_title": "1 Year of Service",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "1 Year of Service",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "j.",
+      "section_title": "2 Years of Service",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "2 Years of Service",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 2,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "k.",
+      "section_title": "______ (not to exceed 12) consecutive month period ... Hours of Service are completed.",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "______ (not to exceed 12) consecutive month period from the Eligible Employee's employment commencement date and during which at least ______ (not to exceed 1,000) Hours of Service are completed. If an Eligible Employee does not complete the stated Hours of Service during the specified time period, the Employee is subject to the 1 Year of Service requirement in i. above.",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 3,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 7,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "l.",
+      "section_title": "______ (not to exceed 12) consecutive months of employment ...",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "______ (not to exceed 12) consecutive months of employment from the Eligible Employee's employment commencement date. If an Eligible Employee does not complete the stated number of months, the Employee is subject to the 1 Year of Service requirement in i. above.",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.9
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "m.",
+      "section_title": "Other",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "Other: (e.g., date on which 1,000 Hours of Service is completed within the computation period) (must satisfy the Notes below)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.89
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "n.",
+      "section_title": "Other",
+      "parent_section": "Eligibility Conditions",
+      "provision_text": "Other: (e.g., date on which 1,000 Hours of Service is completed within the computation period) (must specify contributions to which conditions apply and satisfy the Notes below)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.89
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        }
+      ]
+    },
+    {
+      "pdf_page": 5,
+      "section_number": "o.",
+      "section_title": "If employed on ______ the following requirements will be waived",
+      "parent_section": "Waiver of conditions",
+      "provision_text": "If employed on __________ the following requirements, and the entry date requirement, will be waived. (select a. and/or b. AND c. and/or d. if applicable) (for 401(k)",
+      "provision_type": "operational",
+      "status": "unanswered",
+      "form_elements": [
+        {
+          "element_type": "checkbox",
+          "element_sequence": 1,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "text",
+          "element_sequence": 2,
+          "is_selected": null,
+          "text_value": null,
+          "confidence": 0.88
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 3,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 4,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 5,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        },
+        {
+          "element_type": "checkbox",
+          "element_sequence": 6,
+          "is_selected": false,
+          "text_value": null,
+          "confidence": 0.92
+        }
+      ]
+    }
+  ],
+  "failed_pages": []
+}
