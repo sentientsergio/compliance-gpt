@@ -1,0 +1,460 @@
+{
+  "version": "0.1",
+  "updated": "2025-11-03",
+  "fields": [
+    {
+      "canonical_field": "eligibility.age",
+      "domain": "eligibility",
+      "description": "Minimum age requirement to become eligible/enter the plan for the specified contribution(s).",
+      "value_type": "integer",
+      "units": "years",
+      "constraints": {
+        "min": 0,
+        "max": 21,
+        "notes": "Typical ceiling aligned with IRC 410(a). If shown as 'Age 21' line item, treat as max=21."
+      },
+      "applies_to_dimensions": ["contribution_type", "participant_class"],
+      "vendor_synonyms": [
+        "Age Requirement",
+        "Minimum Age",
+        "Attainment of Age",
+        "Age 21"
+      ]
+    },
+    {
+      "canonical_field": "eligibility.service.method",
+      "domain": "eligibility",
+      "description": "Service crediting method used for eligibility.",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": ["elapsed_time", "hours_of_service", "equivalency"]
+      },
+      "applies_to_dimensions": ["participant_class"],
+      "vendor_synonyms": [
+        "Service for eligibility basis",
+        "Method of Determining Service (eligibility)"
+      ]
+    },
+    {
+      "canonical_field": "eligibility.service.years_required",
+      "domain": "eligibility",
+      "description": "Years (or periods) of service required to become eligible.",
+      "value_type": "decimal",
+      "units": "years",
+      "constraints": {
+        "min": 0,
+        "max": 2,
+        "step": 0.5,
+        "notes": "Common cap ~2 years subject to vesting immediacy rules."
+      },
+      "applies_to_dimensions": ["contribution_type", "participant_class"],
+      "vendor_synonyms": [
+        "Years of Eligibility Service",
+        "Period of Service required"
+      ]
+    },
+    {
+      "canonical_field": "eligibility.service.hours_required",
+      "domain": "eligibility",
+      "description": "Hours-of-Service threshold for a Year of Service (eligibility).",
+      "value_type": "integer",
+      "units": "hours_of_service",
+      "constraints": { "min": 0, "max": 1000, "step": 1 },
+      "applies_to_dimensions": ["participant_class"],
+      "vendor_synonyms": [
+        "Number of Hours of Service required",
+        "Hours requirement for eligibility"
+      ]
+    },
+    {
+      "canonical_field": "eligibility.entry.frequency",
+      "domain": "eligibility",
+      "description": "Entry date frequency/pattern.",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": [
+          "monthly",
+          "quarterly",
+          "semi_annual",
+          "annual",
+          "other"
+        ]
+      },
+      "applies_to_dimensions": ["contribution_type"],
+      "vendor_synonyms": [
+        "Entry Date",
+        "Eligibility and Entry timing",
+        "Entry date (select one)"
+      ]
+    },
+    {
+      "canonical_field": "eligibility.entry.other_text",
+      "domain": "eligibility",
+      "description": "Custom entry date definition when 'Other' is selected.",
+      "value_type": "string",
+      "units": "N/A",
+      "constraints": { "regex": ".{0,500}" },
+      "applies_to_dimensions": ["contribution_type"],
+      "vendor_synonyms": ["Other entry date"]
+    },
+    {
+      "canonical_field": "eligibility.exclusions.classes",
+      "domain": "eligibility",
+      "description": "Participant classes excluded from eligibility.",
+      "value_type": "array",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": [
+          "leased",
+          "nonresident_alien",
+          "collectively_bargained",
+          "seasonal",
+          "temporary",
+          "part_time",
+          "union",
+          "other"
+        ]
+      },
+      "applies_to_dimensions": ["participant_class"],
+      "vendor_synonyms": ["Excluded Employees", "Exclusions"]
+    },
+
+    {
+      "canonical_field": "vesting.schedule.matching",
+      "domain": "vesting",
+      "description": "Vesting schedule applicable to employer matching contributions.",
+      "value_type": "schedule",
+      "units": "N/A",
+      "constraints": {
+        "dependencies": [
+          "vesting.service.method",
+          "vesting.service.hours_threshold"
+        ]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Vesting schedule - matching",
+        "Part B - Vesting Schedule for Employer Matching"
+      ]
+    },
+    {
+      "canonical_field": "vesting.schedule.nonelective",
+      "domain": "vesting",
+      "description": "Vesting schedule applicable to employer nonelective/profit sharing contributions.",
+      "value_type": "schedule",
+      "units": "N/A",
+      "constraints": {
+        "dependencies": [
+          "vesting.service.method",
+          "vesting.service.hours_threshold"
+        ]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Vesting schedule - nonelective",
+        "Vesting of Participant's Interest"
+      ]
+    },
+    {
+      "canonical_field": "vesting.service.method",
+      "domain": "vesting",
+      "description": "Service crediting method for vesting.",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": ["elapsed_time", "hours_of_service", "equivalency"]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Service for vesting basis",
+        "Service Required for Vesting"
+      ]
+    },
+    {
+      "canonical_field": "vesting.service.hours_threshold",
+      "domain": "vesting",
+      "description": "Hours defining a Year of Service for vesting.",
+      "value_type": "integer",
+      "units": "hours_of_service",
+      "constraints": { "min": 0, "max": 1000 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Hours requirement (vesting)"]
+    },
+    {
+      "canonical_field": "vesting.waiver.effective_date_all",
+      "domain": "vesting",
+      "description": "Vesting waiver (100% vested) for participants employed as of a date (all contrib. sources).",
+      "value_type": "string",
+      "units": "N/A",
+      "constraints": { "regex": "^[0-9\\-/]{0,10}$" },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Vesting waiver - all contributions",
+        "100% vested if employed on"
+      ]
+    },
+    {
+      "canonical_field": "vesting.waiver.effective_date_by_source",
+      "domain": "vesting",
+      "description": "Vesting waiver dates keyed by contribution source.",
+      "value_type": "object",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": ["contribution_type"],
+      "vendor_synonyms": ["Vesting waiver - designated contributions"]
+    },
+
+    {
+      "canonical_field": "contributions.match.formula.type",
+      "domain": "contributions",
+      "description": "Type of matching formula.",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": [
+          "fixed_uniform",
+          "fixed_tiered",
+          "fixed_by_yos",
+          "discretionary_tiered",
+          "other"
+        ]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Matching formula",
+        "Fixed - uniform rate/amount",
+        "Fixed - tiered",
+        "Discretionary - tiered",
+        "Years of Service based",
+        "Other formula"
+      ]
+    },
+    {
+      "canonical_field": "contributions.match.formula.fixed_rate_percent",
+      "domain": "contributions",
+      "description": "Uniform match % of deferrals.",
+      "value_type": "percentage",
+      "units": "percent",
+      "constraints": { "min": 0, "max": 200, "step": 0.01 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Matching percentage", "Uniform match rate"]
+    },
+    {
+      "canonical_field": "contributions.match.max.limit_type",
+      "domain": "contributions",
+      "description": "Type of match maximum limit.",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": ["dollar", "percent_of_compensation", "none"]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Maximum matching contribution"]
+    },
+    {
+      "canonical_field": "contributions.match.max.dollar",
+      "domain": "contributions",
+      "description": "Dollar cap on match.",
+      "value_type": "currency",
+      "units": "dollars",
+      "constraints": { "min": 0, "max": 1000000, "step": 1 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Maximum match $"]
+    },
+    {
+      "canonical_field": "contributions.match.max.percent_of_compensation",
+      "domain": "contributions",
+      "description": "Percent-of-comp cap on match.",
+      "value_type": "percentage",
+      "units": "percent",
+      "constraints": { "min": 0, "max": 100, "step": 0.01 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Maximum match % of Comp"]
+    },
+    {
+      "canonical_field": "contributions.catch_up.match_applies",
+      "domain": "contributions",
+      "description": "Whether catch-up deferrals receive match.",
+      "value_type": "boolean",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Catch-up matched",
+        "Matching Contributions re: Catch-up"
+      ]
+    },
+    {
+      "canonical_field": "contributions.safe_harbor.type",
+      "domain": "contributions",
+      "description": "Safe harbor design elected.",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": [
+          "none",
+          "basic_match",
+          "enhanced_match",
+          "nonelective_3",
+          "qaca_basic",
+          "qaca_enhanced"
+        ]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Safe Harbor", "QACA Safe Harbor"]
+    },
+    {
+      "canonical_field": "contributions.auto_enroll.default_rate",
+      "domain": "contributions",
+      "description": "Default deferral rate for automatic enrollment (where applicable).",
+      "value_type": "percentage",
+      "units": "percent",
+      "constraints": { "min": 0, "max": 20, "step": 0.5 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": [
+        "Automatic enrollment default rate",
+        "QACA default rate"
+      ]
+    },
+    {
+      "canonical_field": "contributions.auto_enroll.auto_escalation.enabled",
+      "domain": "contributions",
+      "description": "Whether automatic escalation applies.",
+      "value_type": "boolean",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Auto-escalation", "Automatic increase"]
+    },
+    {
+      "canonical_field": "contributions.auto_enroll.auto_escalation.step",
+      "domain": "contributions",
+      "description": "Annual escalation step if enabled.",
+      "value_type": "percentage",
+      "units": "percent",
+      "constraints": { "min": 0, "max": 10, "step": 0.5 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Escalation increment"]
+    },
+
+    {
+      "canonical_field": "loans.available",
+      "domain": "loans",
+      "description": "Whether participant loans are permitted.",
+      "value_type": "boolean",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Loans permitted", "Participant loans"]
+    },
+    {
+      "canonical_field": "loans.min_amount",
+      "domain": "loans",
+      "description": "Minimum loan amount.",
+      "value_type": "currency",
+      "units": "dollars",
+      "constraints": { "min": 0, "max": 100000, "step": 1 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Minimum loan $"]
+    },
+    {
+      "canonical_field": "loans.max_outstanding_count",
+      "domain": "loans",
+      "description": "Max number of outstanding loans.",
+      "value_type": "integer",
+      "units": "N/A",
+      "constraints": { "min": 0, "max": 10 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Number of loans outstanding"]
+    },
+    {
+      "canonical_field": "loans.home_loan_term_years",
+      "domain": "loans",
+      "description": "Term for primary residence loans.",
+      "value_type": "integer",
+      "units": "years",
+      "constraints": { "min": 1, "max": 30 },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Home loan term", "Primary residence loan term"]
+    },
+    {
+      "canonical_field": "loans.allowed_account_sources",
+      "domain": "loans",
+      "description": "Account sources eligible for loans.",
+      "value_type": "array",
+      "units": "N/A",
+      "constraints": {
+        "allowed_enums": [
+          "pretax",
+          "roth",
+          "matching",
+          "nonelective",
+          "profit_sharing",
+          "rollover",
+          "qaca_safe_harbor",
+          "qnec"
+        ]
+      },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Account restrictions for loans"]
+    },
+    {
+      "canonical_field": "loans.hardship_or_necessity_only",
+      "domain": "loans",
+      "description": "Loans restricted to hardship/necessity.",
+      "value_type": "boolean",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Loans only for hardship or necessity"]
+    },
+
+    {
+      "canonical_field": "distributions.in_service.age_min",
+      "domain": "distributions",
+      "description": "Minimum age for in-service withdrawal (non-hardship).",
+      "value_type": "decimal",
+      "units": "years",
+      "constraints": {
+        "min": 0,
+        "max": 70,
+        "step": 0.5,
+        "notes": "Commonly 59.5"
+      },
+      "applies_to_dimensions": ["contribution_type"],
+      "vendor_synonyms": ["In-service at age 59½", "Age-based in-service"]
+    },
+    {
+      "canonical_field": "distributions.hardship.allowed",
+      "domain": "distributions",
+      "description": "Whether hardship distributions are permitted.",
+      "value_type": "boolean",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": ["contribution_type"],
+      "vendor_synonyms": ["Hardship distributions permitted"]
+    },
+    {
+      "canonical_field": "distributions.hardship.beneficiary_allowed",
+      "domain": "distributions",
+      "description": "Hardship due to primary beneficiary hardship allowed.",
+      "value_type": "boolean",
+      "units": "N/A",
+      "constraints": {},
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Beneficiary hardship availability"]
+    },
+    {
+      "canonical_field": "distributions.rmd.rule_source",
+      "domain": "distributions",
+      "description": "Indicates RMD is governed by statutory/plan defaults (no elective choice).",
+      "value_type": "enum",
+      "units": "N/A",
+      "constraints": { "allowed_enums": ["by_law", "plan_specific"] },
+      "applies_to_dimensions": [],
+      "vendor_synonyms": ["Required Minimum Distributions"]
+    }
+  ]
+}

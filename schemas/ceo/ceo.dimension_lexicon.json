@@ -1,0 +1,17 @@
+{
+  "contribution_type_lexicon": {
+    "pretax": [
+      "pre-tax",
+      "pre tax",
+      "pre tax elective deferrals",
+      "elective deferrals"
+    ],
+    "roth": ["roth", "roth elective deferrals"],
+    "matching": ["match", "matching contributions"],
+    "nonelective": ["nonelective", "non-elective"],
+    "profit_sharing": ["profit sharing", "profit-sharing"],
+    "safe_harbor": ["safe harbor"],
+    "qaca_safe_harbor": ["qaca safe harbor", "qaca"],
+    "qnec": ["qnec", "qualified nonelective"]
+  }
+}

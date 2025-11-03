@@ -1,0 +1,615 @@
+{
+  "note": "Sample of 10 diverse Relius AA elections for CEO schema design",
+  "source_file": "test_data/extracted/relius_aa_elections.json",
+  "total_elections": 182,
+  "samples": [
+    {
+      "page_sequence": 3,
+      "kind": "single_select",
+      "question_number": "1.03",
+      "question_text": "f. Age 21",
+      "section_context": "Eligibility Conditions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 1,
+        "question_number": "1.03"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "All Contributions",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq03_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Elective Deferrals/SH",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq03_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Matching",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq03_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "Nonelective",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq03_opt_d"
+        }
+      ],
+      "id": "election_p001_seq03"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "15",
+      "question_text": "Entry date (select one):",
+      "section_context": "Plan Section 3.2",
+      "status": "answered",
+      "confidence": 0.98,
+      "provenance": {
+        "page": 6,
+        "question_number": "15"
+      },
+      "value": {
+        "selected_label": "a"
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Entry date same for all contribution types.",
+          "is_selected": true,
+          "fill_ins": [],
+          "option_id": "election_p006_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Entry date - different dates apply.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p006_seq01_opt_b"
+        }
+      ],
+      "id": "election_p006_seq01"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "multi_select",
+      "question_number": "17.01",
+      "question_text": "SERVICE CREDITING METHOD (Plan Sections 1.62 and 1.88)",
+      "section_context": "Non-Standardized Defined Contribution",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 8,
+        "question_number": "17.01"
+      },
+      "value": {
+        "selected_labels": []
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Elapsed time method. (Period of Service applies instead of Year of Service) Instead of Hours of Service, elapsed time will be used for:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Alternative definitions for the Hours of Service method. Instead of the defaults, the following alternatives will apply for the Hours of Service method (select one or more):",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Equivalency method. Instead of using actual Hours of Service, an equivalency method will be used to determine Hours of Service for:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "Number of Hours of Service required. Instead of 1,000 Hours of Service, Year of Service means the applicable computation period during which an Employee has completed at least ______ (not to exceed 1,000) Hours of Service for:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "other: __________ (e.g., option f. is used for per-diem Employees only)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_e"
+        }
+      ],
+      "id": "election_p008_seq01"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "multi_select",
+      "question_number": "18",
+      "question_text": "VESTING OF PARTICIPANT'S INTEREST (Plan Section 6.4(b))",
+      "section_context": "VESTING",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 9,
+        "question_number": "18"
+      },
+      "value": {
+        "selected_labels": []
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "N/A (no Employer Nonelective Contributions (other than \"prevailing wage contributions\") (for 401(k) plans, also no matching contributions or QACA \"ADP test safe harbor contributions\") (skip to Question 20)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "The vesting provisions selected below apply to all Participants unless otherwise selected below. In addition, option I. under Section B of Appendix A to the Adoption Agreement (Special Effective Dates and Other Permitted Elections) can be used to specify any exceptions to the provisions below.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Vesting waiver. Employees who were employed on the date(s) indicated below and were Participants as of such date are 100% Vested. For Participants who enter the Plan after such date, the vesting provisions selected below apply (leave blank if no waiver applies):",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_c"
+        },
+        {
+          "label": "1",
+          "option_text": "1. [ ] For all contributions. The vesting waiver applies to all contributions if employed on ______ (enter date)",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Enter date",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p009_seq01_opt_1"
+        },
+        {
+          "label": "2",
+          "option_text": "2. [ ] For designated contributions. The vesting waiver applies to (select one or more):",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_2"
+        },
+        {
+          "label": "a",
+          "option_text": "a. [ ] Employer Nonelective Contributions if employed on ______",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Enter date",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p009_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "b. [ ] Employer matching contributions if employed on ______",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Enter date",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p009_seq01_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "c. [ ] QACA \"ADP test safe harbor contributions\" if employed on ______",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Enter date",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p009_seq01_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "d. [ ] 100% vesting. Participants are 100% Vested in Employer Nonelective Contributions upon entering Plan. (required if eligibility requirement is greater than 1 Year (or Period) of Service).",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "e. [ ] The following vesting schedule, based on a Participant's Years of Service (or Periods of Service if the elapsed time method is selected), applies to Employer Nonnelective Contributions:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_e"
+        },
+        {
+          "label": "1",
+          "option_text": "1. [ ] 6 Year Graded: 0-1 year-0%; 2 years-20%; 3 years-40%; 4 years-60%; 5 years-80%; 6 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_1"
+        },
+        {
+          "label": "2",
+          "option_text": "2. [ ] 4 Year Graded: 1 year-25%; 2 years-50%; 3 years-75%; 4 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_2"
+        },
+        {
+          "label": "3",
+          "option_text": "3. [ ] 5 Year Graded: 1 year-20%; 2 years-40%; 3 years-60%; 4 years-80%; 5 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_3"
+        },
+        {
+          "label": "4",
+          "option_text": "4. [ ] 3 Year Cliff: 0-2 years-0%; 3 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_4"
+        },
+        {
+          "label": "5",
+          "option_text": "5. [ ] Other - Must be at least as liberal as either 1. or 4. above in each year without switching between the two schedules:",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Years (or Periods) of Service",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            },
+            {
+              "fill_in_sequence": 2,
+              "kind": "text",
+              "question_text": "Percentage",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p009_seq01_opt_5"
+        },
+        {
+          "label": "f",
+          "option_text": "f. [ ] Other - Must be at least as liberal as either 1. or 4. above in each year without switching between the two schedules:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_f"
+        },
+        {
+          "label": "g",
+          "option_text": "g. [ ] Other - Must be at least as liberal as either 1. or 4. above in each year without switching between the two schedules:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_g"
+        },
+        {
+          "label": "h",
+          "option_text": "h. [ ] 100% vesting. Participants are 100% Vested in Employer Nonelective Contributions upon entering Plan (required if eligibility requirement is greater than 1 Year (or Period) of Service).",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_h"
+        },
+        {
+          "label": "i",
+          "option_text": "i. [ ] The following vesting schedule, based on a Participant's Years of Service (or Periods of Service if the elapsed time method is selected), applies to Employer Matching Contributions:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_i"
+        },
+        {
+          "label": "1",
+          "option_text": "1. [ ] 6 Year Graded: 0-1 year-0%; 2 years-20%; 3 years-40%; 4 years-60%; 5 years-80%; 6 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_1"
+        },
+        {
+          "label": "2",
+          "option_text": "2. [ ] 4 Year Graded: 1 year-25%; 2 years-50%; 3 years-75%; 4 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_2"
+        },
+        {
+          "label": "3",
+          "option_text": "3. [ ] 5 Year Graded: 1 year-20%; 2 years-40%; 3 years-60%; 4 years-80%; 5 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_3"
+        },
+        {
+          "label": "4",
+          "option_text": "4. [ ] 3 Year Cliff: 0-2 years-0%; 3 years-100%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_4"
+        },
+        {
+          "label": "5",
+          "option_text": "5. [ ] Other - must be at least as liberal as either 1. or 4. above in each year without switching between the two schedules.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p009_seq01_opt_5"
+        }
+      ],
+      "id": "election_p009_seq01"
+    },
+    {
+      "page_sequence": 3,
+      "kind": "single_select",
+      "question_number": "33.01",
+      "question_text": "Top-Heavy Minimum Allocation (select one):",
+      "section_context": "TOP-HEAVY MINIMUM ALLOCATION",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 26,
+        "question_number": "33.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "The Top-Heavy minimum will be provided to both Key and Non-Key Employee Participants.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p026_seq03_opt_a"
+        }
+      ],
+      "id": "election_p026_seq03"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "2.01",
+      "question_text": "Fixed - uniform rate/amount. The Employer will make matching contributions equal to ____% (e.g., 50) of the Participant's Elective Deferrals, plus (select a. or leave blank if not applicable):",
+      "section_context": "Article III - Contributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 20,
+        "question_number": "2.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "an additional matching contribution of a discretionary percentage determined by the Employer, but not to exceed ______% of Compensation (leave blank if not applicable). Such contribution is subject to the Instructions and Notice requirement of Section 12.12.",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Specify maximum percentage of Compensation:",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p020_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Discretionary - tiered. The Employer may make matching contributions equal to a discretionary percentage of a Participant's Elective Deferrals, to be determined by the Employer, or to be determined for each tier, to be determined by the Employer. The tiers may be based on the rate of a Participant's Elective Deferrals or Years of Service.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p020_seq01_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Fixed - tiered. The Employer will make matching contributions equal to a uniform percentage of each Participant's Elective Deferrals, determined as follows:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p020_seq01_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "Fixed - Years of Service. The Employer will make matching contributions equal to a uniform percentage of each Participant's Elective Deferrals based on the Participant's Years of Service (or Periods of Service if the elapsed time method is selected), determined as follows: Years (or Periods) of Service  Matching Percentage _____% _____% _____%",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p020_seq01_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "Other: ______ (the formula described must satisfy the definitively determinable requirement under Reg. \u00a71.401-1(b). If the formula is non-uniform, it is not a design-based safe harbor for nondiscrimination purposes.) Such contribution is subject to the Instructions and Notice requirement of Section 12.12.",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Other: Describe formula",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p020_seq01_opt_e"
+        },
+        {
+          "label": "f",
+          "option_text": "Maximum matching contribution. The matching contribution made on behalf of any Participant for any Plan Year will not exceed (select 1 or 2): 1. [ ] $ ______ 2. [ ] ____% of Compensation.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p020_seq01_opt_f"
+        }
+      ],
+      "id": "election_p020_seq01"
+    },
+    {
+      "page_sequence": 6,
+      "kind": "text",
+      "question_number": "37",
+      "question_text": "37. HARDSHIP DISTRIBUTIONS (Plan Sections 6.12 and/or 12.10)",
+      "section_context": "Hardship Distributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 28,
+        "question_number": "37"
+      },
+      "value": null,
+      "id": "election_p028_seq06"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "multi_select",
+      "question_number": "A.01",
+      "question_text": "A. Loan limitations. Note: The separate loan program required by the DOL will override any inconsistent selections made below.",
+      "section_context": "Administrative Procedures",
+      "status": "answered",
+      "confidence": 0.98,
+      "provenance": {
+        "page": 1,
+        "question_number": "A.01"
+      },
+      "value": {
+        "selected_labels": [
+          "a"
+        ]
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Limitations (select one or more; leave blank if none apply):",
+          "is_selected": true,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Loans will be treated as Participant directed investments.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Loans will only be made for hardship or financial necessity as defined below (select a. or b.)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "The minimum loan will be $____ (may not exceed $1,000).",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "A Participant may only have ____ loan(s) outstanding at any time.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_e"
+        },
+        {
+          "label": "f",
+          "option_text": "All outstanding loan balances will become due and payable upon severance of employment unless directly rolled over to another employer's plan.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_f"
+        },
+        {
+          "label": "g",
+          "option_text": "The home loan term will be ____ years. (if not selected, default 5 years)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_g"
+        },
+        {
+          "label": "h",
+          "option_text": "Account restrictions. Loans will only be permitted from the following Participant Accounts (select all that apply) or leave blank if no limitations apply:",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_h"
+        },
+        {
+          "label": "i",
+          "option_text": "Other: __________________",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p001_seq44_opt_i"
+        }
+      ],
+      "id": "election_p001_seq44"
+    },
+    {
+      "page_sequence": 4,
+      "kind": "text",
+      "question_number": "24.a",
+      "question_text": "a. limited to HCEs (must be selected for ADP Safe Harbor Plans)",
+      "section_context": "Non-Standardized Defined Contribution",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 12,
+        "question_number": "24.a"
+      },
+      "value": null,
+      "id": "election_p012_seq04"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "text",
+      "question_number": "1.01",
+      "question_text": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR",
+      "section_context": "Employer Information",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 1,
+        "question_number": "1.01"
+      },
+      "value": null,
+      "id": "election_p001_seq21"
+    }
+  ]
+}

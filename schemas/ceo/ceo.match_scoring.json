@@ -1,0 +1,47 @@
+{
+  "version": "0.1",
+  "weights": {
+    "TypeMatch": 0.45,
+    "DomainSim": 0.15,
+    "LabelSim": 0.15,
+    "ConstraintCompat": 0.15,
+    "VariantCompat": 0.05,
+    "SynonymBoost": 0.05
+  },
+  "components": {
+    "TypeMatch": {
+      "rule": "1.0 if value_type matches exactly; -0.25 penalty if units mismatch; 0.5 if compatible numeric (integer vs decimal/percentage requires unit normalization). Floor at 0."
+    },
+    "DomainSim": {
+      "rule": "1.0 if domain identical; 0.5 if adjacent (eligibility↔vesting service crediting); else 0."
+    },
+    "LabelSim": {
+      "rule": "Normalized token overlap of canonical name + synonyms vs vendor label; stop-words removed; cap at 1.0.",
+      "note": "Use a cheap char-trigram Jaccard; avoid LLM here."
+    },
+    "ConstraintCompat": {
+      "rule": "1.0 if source constraints are within target bounds; 0.5 if overlapping ranges; 0 if disjoint."
+    },
+    "VariantCompat": {
+      "rule": "1.0 if structural variants map with a defined transformation; 0.5 if unknown but not contradictory; 0 if contradictory (e.g., array vs scalar with no rule)."
+    },
+    "SynonymBoost": {
+      "rule": "+0.1 for strong curated synonym hit (e.g., 'Age 21' ↔ eligibility.age), capped at weight."
+    }
+  },
+  "tie_breaker": {
+    "llm_enabled": true,
+    "max_effect": 0.05,
+    "prompt": "Given two near-equal canonical matches, select the one whose constraints and dimensions better preserve participant-level behavior; explain in 1 sentence.",
+    "usage": "Only when absolute score delta < 0.03."
+  },
+  "thresholds": {
+    "auto_accept": 0.85,
+    "review": 0.7,
+    "reject": 0.5
+  },
+  "normalization": {
+    "percentage_as_decimal": "Normalize % to decimal when comparing numeric types.",
+    "age_line_as_max": "Treat named 'Age 21' lines as constraint max=21 for structural matching."
+  }
+}

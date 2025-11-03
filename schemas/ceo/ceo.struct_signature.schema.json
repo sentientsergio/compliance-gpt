@@ -1,0 +1,99 @@
+{
+  "$id": "https://ceo.sentientsergio/schema/struct_signature.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CEO Structural Signature",
+  "type": "object",
+  "required": [
+    "shape",
+    "controls",
+    "option_count",
+    "dimension_hits",
+    "value_hints",
+    "constraints_hints",
+    "hierarchy"
+  ],
+  "properties": {
+    "shape": {
+      "type": "string",
+      "enum": [
+        "scalar_boolean",
+        "scalar_numeric",
+        "menu",
+        "checklist",
+        "menu_plus_other",
+        "array_by_dimension",
+        "toggle_plus_detail",
+        "schedule_grid",
+        "text_block"
+      ]
+    },
+    "controls": {
+      "type": "object",
+      "properties": {
+        "checkbox": { "type": "integer", "minimum": 0 },
+        "text": { "type": "integer", "minimum": 0 },
+        "radio": { "type": "integer", "minimum": 0 },
+        "grid": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "option_count": { "type": "integer", "minimum": 0 },
+    "has_other_option": { "type": "boolean" },
+    "has_any_fill_ins": { "type": "boolean" },
+    "fill_in_kinds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["text", "number", "currency", "percent", "date"]
+      }
+    },
+    "dimension_hits": {
+      "type": "object",
+      "properties": {
+        "contribution_type": { "type": "array", "items": { "type": "string" } },
+        "participant_class": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "value_hints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["age_years", "hours", "percent", "dollars", "date", "schedule"]
+      }
+    },
+    "numeric_literals": { "type": "array", "items": { "type": "number" } },
+    "unit_hints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["years", "hours", "percent", "dollars"]
+      }
+    },
+    "constraints_hints": {
+      "type": "object",
+      "properties": {
+        "max_implied": { "type": ["number", "null"] },
+        "min_implied": { "type": ["number", "null"] },
+        "not_to_exceed": { "type": ["number", "null"] }
+      }
+    },
+    "dependency_hints": {
+      "type": "object",
+      "properties": {
+        "select_one": { "type": "boolean" },
+        "select_all_apply": { "type": "boolean" },
+        "has_parent_toggle": { "type": "boolean" }
+      }
+    },
+    "hierarchy": {
+      "type": "object",
+      "properties": {
+        "depth": { "type": "integer", "minimum": 0 },
+        "path_suffix_kind": {
+          "type": "string",
+          "enum": ["numbered", "lettered", "UNK"]
+        }
+      }
+    },
+    "label_tokens": { "type": "array", "items": { "type": "string" } }
+  }
+}

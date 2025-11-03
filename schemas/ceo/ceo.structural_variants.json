@@ -1,0 +1,134 @@
+{
+  "version": "0.1",
+  "updated": "2025-11-03",
+  "variants": [
+    {
+      "canonical_field": "eligibility.age",
+      "structural_variants": [
+        {
+          "variant_id": "single_age_with_applies_to",
+          "vendors": ["Relius", "ftwilliam"],
+          "structure": "One age line (often 'Age 21') plus N checkboxes for contribution types.",
+          "detection_rules": [
+            "question_text contains 'Age' and numeric (e.g., 21) OR a single numeric entry",
+            "options include contribution-type labels",
+            "kind includes checkboxes"
+          ],
+          "transformation_rules": "Replicate the age value across selected contribution types; absent checkbox ⇒ no mapping for that type.",
+          "evidence": "Relius ‘f. Age 21’ with All/Elective/Matching/Nonelective checkboxes.",
+          "citations": ["turn0file0"]
+        },
+        {
+          "variant_id": "age_per_contribution_type",
+          "vendors": ["Ascensus"],
+          "structure": "A separate age selection per contribution type (checkbox + textbox or per-type items).",
+          "detection_rules": [
+            "Parent/section labeled 'Age Requirement'",
+            "Per-type rows: Pre-Tax, Roth, Matching, Profit Sharing, Safe Harbor/QACA, QNEC"
+          ],
+          "transformation_rules": "Each contribution type maps to an independent age node (same canonical field + dimension binding).",
+          "evidence": "Ascensus ‘Age Requirement’ multi-select by source.",
+          "citations": ["turn0file1"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "eligibility.entry.frequency",
+      "structural_variants": [
+        {
+          "variant_id": "single_entry_toggle",
+          "vendors": ["Relius"],
+          "structure": "Single radio: 'Entry date same for all' vs 'different dates apply'.",
+          "transformation_rules": "If 'same for all' → apply one frequency to contribution_type=all; else spawn child entries per type.",
+          "citations": ["turn0file0"]
+        },
+        {
+          "variant_id": "preset_or_other_per_type",
+          "vendors": ["Ascensus"],
+          "structure": "Preset frequencies (Monthly/Quarterly/…) plus 'Other' with per-type text fill-ins.",
+          "transformation_rules": "Preset → direct enum. 'Other' → set frequency=other and pull per-type strings into eligibility.entry.other_text with dimension bindings.",
+          "citations": ["turn0file1"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "eligibility.service.method",
+      "structural_variants": [
+        {
+          "variant_id": "eligibility_service_menu",
+          "vendors": ["Relius"],
+          "structure": "Multi-select menu: elapsed time, hours of service (with alternatives), equivalency, numeric hours.",
+          "transformation_rules": "Normalize to enum; if numeric hours present, set eligibility.service.hours_required.",
+          "citations": ["turn0file0"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "vesting.schedule.nonelective",
+      "structural_variants": [
+        {
+          "variant_id": "preset_schedule_catalog",
+          "vendors": ["Relius"],
+          "structure": "Checkboxes for '6-year graded', '4-year graded', '3-year cliff', or 'Other' with free grid.",
+          "transformation_rules": "Map presets to schedule.type and graded/cliff parameters; Other → schedule.text.",
+          "citations": ["turn0file0"]
+        },
+        {
+          "variant_id": "part_based_vesting",
+          "vendors": ["Ascensus"],
+          "structure": "Part B with option sets per contribution source.",
+          "transformation_rules": "Bind schedule objects per source (matching vs profit sharing) to the appropriate canonical fields.",
+          "citations": ["turn0file1"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "contributions.match.formula.type",
+      "structural_variants": [
+        {
+          "variant_id": "formula_family_with_fill_ins",
+          "vendors": ["Relius"],
+          "structure": "One-of formula family (fixed, tiered, YOS, discretionary) with optional 'Other: text'.",
+          "transformation_rules": "Set enum; capture supplemental percentages/tiers into adjacent canonical fields.",
+          "citations": ["turn0file0"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "contributions.catch_up.match_applies",
+      "structural_variants": [
+        {
+          "variant_id": "explicit_yes_no",
+          "vendors": ["Ascensus"],
+          "structure": "Single-select Yes/No question tied to catch-up matching.",
+          "transformation_rules": "Map Yes→true, No→false.",
+          "citations": ["turn0file1"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "loans.available",
+      "structural_variants": [
+        {
+          "variant_id": "loan_program_switch_with_limits",
+          "vendors": ["Relius"],
+          "structure": "Menu with suboptions (min $, max loans, home loan term, account restrictions, hardship-only).",
+          "transformation_rules": "Set loans.available=true if menu present; map each suboption to respective canonical fields.",
+          "citations": ["turn0file0"]
+        }
+      ]
+    },
+    {
+      "canonical_field": "distributions.hardship.beneficiary_allowed",
+      "structural_variants": [
+        {
+          "variant_id": "beneficiary_hardship_yes_no",
+          "vendors": ["Ascensus"],
+          "structure": "Single-select permitting hardship due to primary beneficiary.",
+          "transformation_rules": "Yes→true, No→false.",
+          "citations": ["turn0file1"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "note": "Sample of 10 diverse Ascensus AA elections for CEO schema design",
+  "source_file": "test_data/extracted/ascensus_aa_elections.json",
+  "total_elections": 550,
+  "samples": [
+    {
+      "page_sequence": 3,
+      "kind": "multi_select",
+      "question_number": "2.03",
+      "question_text": "Age Requirement",
+      "section_context": "SECTION TWO: ELIGIBILITY Complete Parts A through F",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 2,
+        "question_number": "2.03"
+      },
+      "value": {
+        "selected_labels": []
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Pre-Tax Elective Deferrals.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p002_seq03_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Roth Elective Deferrals.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p002_seq03_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Matching Contributions.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p002_seq03_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "Employer Profit Sharing Contributions.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p002_seq03_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "Safe Harbor/QACA Safe Harbor Contributions.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p002_seq03_opt_e"
+        },
+        {
+          "label": "f",
+          "option_text": "Qualified Nonelective Contributions.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p002_seq03_opt_f"
+        }
+      ],
+      "id": "election_p002_seq03"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "8.01",
+      "question_text": "Entry Date (select one):",
+      "section_context": "Article II - Eligibility and Entry",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 8,
+        "question_number": "8.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Monthly \u2013 The first day of each month of the Plan Year.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Quarterly \u2013 The first day of the Plan Year and the first day of the fourth, seventh, and tenth months of the Plan Year.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Semi-Annually \u2013 The first day of the Plan Year and the first day of the seventh month of the Plan Year.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "Annually \u2013 The first day of the Plan Year.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p008_seq01_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "Other. (Refer to the 'NOTE' at the end of this Part C for restrictions that may apply.)",
+          "is_selected": false,
+          "fill_ins": [
+            {
+              "fill_in_sequence": 1,
+              "kind": "text",
+              "question_text": "Pre-Tax Elective Deferrals (Define Entry Date(s))",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            },
+            {
+              "fill_in_sequence": 2,
+              "kind": "text",
+              "question_text": "Roth Elective Deferrals (Define Entry Date(s))",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            },
+            {
+              "fill_in_sequence": 3,
+              "kind": "text",
+              "question_text": "Matching Contributions (Define Entry Date(s))",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            },
+            {
+              "fill_in_sequence": 4,
+              "kind": "text",
+              "question_text": "Employer Profit Sharing Contributions (Define Entry Date(s))",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            },
+            {
+              "fill_in_sequence": 5,
+              "kind": "text",
+              "question_text": "Safe Harbor/QACA Safe Harbor Contributions (Define Entry Date(s))",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            },
+            {
+              "fill_in_sequence": 6,
+              "kind": "text",
+              "question_text": "Qualified Nonelective Contributions (Define Entry Date(s))",
+              "status": "unanswered",
+              "confidence": 1.0,
+              "value": null
+            }
+          ],
+          "option_id": "election_p008_seq01_opt_e"
+        }
+      ],
+      "id": "election_p008_seq01"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "B.01",
+      "question_text": "Less than One Year of Vesting Service",
+      "section_context": "Part B - Vesting Schedule for Employer Profit Sharing Contributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 32,
+        "question_number": "B.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Option 1",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p032_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "Option 2",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p032_seq01_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "Option 3",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p032_seq01_opt_c"
+        },
+        {
+          "label": "d",
+          "option_text": "Option 4 (Complete if chosen)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p032_seq01_opt_d"
+        },
+        {
+          "label": "e",
+          "option_text": "Option 5 (Complete if chosen)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p032_seq01_opt_e"
+        }
+      ],
+      "id": "election_p032_seq01"
+    },
+    {
+      "page_sequence": 3,
+      "kind": "single_select",
+      "question_number": "3.01",
+      "question_text": "a. Minimum Allocation or Benefit - For any Plan Year with respect to which this Plan is a Top-Heavy Plan, any minimum allocation required pursuant to Plan Section 3.04(E) will be made (select one):",
+      "section_context": "Section 3 - Top-Heavy Contributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 82,
+        "question_number": "3.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "To this Plan (select one): The top-heavy minimum will offset Employer Profit Sharing Contributions, if any, made pursuant to Part D above.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p082_seq03_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "To the following plan maintained by the Employer: (Describe below the extent, if any, to which the top-heavy minimum benefit requirement of Code section 416(c) and Plan Section 3.04(E) will be met in another plan. This should include the name of the other plan, the minimum benefit that will be provided under such other plan, and the Employees who will receive the minimum benefit under such other plan.)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p082_seq03_opt_b"
+        },
+        {
+          "label": "c",
+          "option_text": "In accordance with the following method: (Provide language describing the method that will be used to satisfy Code section 416. Such method must preclude Employer discretion.)",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p082_seq03_opt_c"
+        }
+      ],
+      "id": "election_p082_seq03"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "2.01",
+      "question_text": "Will Matching Contributions be made in accordance with the Matching Contribution formula specified in items 3 and 4 below, with regard to Catch-up Contributions (select one)?",
+      "section_context": "2. Matching Contributions and Catch-up Contributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 16,
+        "question_number": "2.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Yes",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p016_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "No",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p016_seq01_opt_b"
+        }
+      ],
+      "id": "election_p016_seq01"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "3.01",
+      "question_text": "iii. Hardship Availability Due to Beneficiary Hardship: If the Plan permits hardship distributions, will hardship distributions also be permitted because of a hardship incurred by the Primary Beneficiary of an Employee (select one)?",
+      "section_context": "Article III - Distributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 37,
+        "question_number": "3.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Yes",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p037_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "No",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p037_seq01_opt_b"
+        }
+      ],
+      "id": "election_p037_seq01"
+    },
+    {
+      "page_sequence": 5,
+      "kind": "single_select",
+      "question_number": "3.01",
+      "question_text": "Will a Participant be entitled to request a loan pursuant to Plan Section 5.16 (select one)?",
+      "section_context": "Part F - Loans",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 93,
+        "question_number": "3.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Yes.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p093_seq05_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "No.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p093_seq05_opt_b"
+        }
+      ],
+      "id": "election_p093_seq05"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "single_select",
+      "question_number": "1.01",
+      "question_text": "Participants Entitled to Receive QACA Safe Harbor Contributions",
+      "section_context": "QACA Safe Harbor Contributions",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 14,
+        "question_number": "1.01"
+      },
+      "value": {
+        "selected_label": null
+      },
+      "options": [
+        {
+          "label": "a",
+          "option_text": "Each Eligible Employee who is a non-Highly Compensated Employee.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p014_seq01_opt_a"
+        },
+        {
+          "label": "b",
+          "option_text": "All Eligible Employees.",
+          "is_selected": false,
+          "fill_ins": [],
+          "option_id": "election_p014_seq01_opt_b"
+        }
+      ],
+      "id": "election_p014_seq01"
+    },
+    {
+      "page_sequence": 1,
+      "kind": "text",
+      "question_number": "1.01",
+      "question_text": "Name of Adopting Employer: _____________________",
+      "section_context": "ADOPTING EMPLOYER PLAN INFORMATION",
+      "status": "unanswered",
+      "confidence": 1.0,
+      "provenance": {
+        "page": 50,
+        "question_number": "1.01"
+      },
+      "value": null,
+      "id": "election_p050_seq01"
+    }
+  ]
+}

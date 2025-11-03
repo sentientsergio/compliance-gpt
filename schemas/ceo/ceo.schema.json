@@ -1,0 +1,173 @@
+{
+  "$id": "https://ceo.sentientsergio/schema/ceo.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical Election Ontology (CEO) Schema",
+  "type": "object",
+  "required": [
+    "canonical_field",
+    "description",
+    "value_type",
+    "units",
+    "constraints",
+    "applies_to_dimensions",
+    "vendor_synonyms"
+  ],
+  "properties": {
+    "canonical_field": {
+      "type": "string",
+      "pattern": "^(eligibility|vesting|contributions|loans|distributions)(\\.[a-zA-Z0-9_]+)+$",
+      "description": "Dot-path of the canonical field (domain-scoped)."
+    },
+    "description": { "type": "string" },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "eligibility",
+        "vesting",
+        "contributions",
+        "loans",
+        "distributions"
+      ]
+    },
+    "value_type": {
+      "type": "string",
+      "enum": [
+        "integer",
+        "decimal",
+        "percentage",
+        "currency",
+        "boolean",
+        "enum",
+        "string",
+        "duration",
+        "formula",
+        "schedule",
+        "object",
+        "array"
+      ]
+    },
+    "units": {
+      "type": "string",
+      "enum": [
+        "years",
+        "months",
+        "days",
+        "hours",
+        "hours_of_service",
+        "dollars",
+        "percent",
+        "N/A"
+      ]
+    },
+    "constraints": {
+      "type": "object",
+      "properties": {
+        "min": { "type": ["number", "integer"] },
+        "max": { "type": ["number", "integer"] },
+        "step": { "type": ["number", "integer"] },
+        "allowed_enums": { "type": "array", "items": { "type": "string" } },
+        "regex": { "type": "string" },
+        "dependencies": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "applies_to_dimensions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dimensionName" }
+    },
+    "dimension_values": {
+      "type": "object",
+      "description": "Optional: bind a specific value for a dimension in this node.",
+      "additionalProperties": true
+    },
+    "vendor_synonyms": { "type": "array", "items": { "type": "string" } },
+    "examples": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  },
+  "$defs": {
+    "dimensionName": {
+      "type": "string",
+      "enum": [
+        "contribution_type",
+        "participant_class",
+        "employment_status",
+        "union_status",
+        "work_location"
+      ]
+    },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "contribution_type": {
+          "type": "string",
+          "enum": [
+            "all",
+            "pretax",
+            "roth",
+            "matching",
+            "nonelective",
+            "profit_sharing",
+            "safe_harbor",
+            "qaca_safe_harbor",
+            "qnec"
+          ]
+        },
+        "participant_class": {
+          "type": "string",
+          "enum": [
+            "all",
+            "salaried",
+            "hourly",
+            "part_time",
+            "seasonal",
+            "temporary",
+            "leased",
+            "nonresident_alien",
+            "collectively_bargained",
+            "highly_compensated",
+            "non_highly_compensated"
+          ]
+        },
+        "employment_status": {
+          "type": "string",
+          "enum": ["active", "terminated", "disabled", "retired"]
+        },
+        "union_status": {
+          "type": "string",
+          "enum": ["union", "non_union"]
+        },
+        "work_location": {
+          "type": "string",
+          "enum": ["all", "us", "non_us", "state_specific"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "vestingSchedule": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "enum": ["cliff", "graded", "other"] },
+        "cliff_years": { "type": "integer", "minimum": 0, "maximum": 7 },
+        "graded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["year", "percent_vested"],
+            "properties": {
+              "year": { "type": "integer", "minimum": 0, "maximum": 7 },
+              "percent_vested": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              }
+            }
+          }
+        },
+        "text": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

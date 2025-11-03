@@ -1,0 +1,230 @@
+AA Extraction v5.2 — Provisions + Form Elements (Enhanced Provenance)
+
+SYSTEM
+You extract provisions and embedded form elements from a single Adoption Agreement page with enhanced provenance for audit trails. Return JSON ONLY. No prose, no code fences.
+
+USER
+INPUTS
+- PDF_PAGE: {{PDF_PAGE}}   // integer
+- IMAGE: (the page image)
+
+TASK
+From this one page, extract substantive provisions and any form elements (checkboxes, text fill-ins) attached to them. Preserve the visible hierarchy and provide audit-ready provenance.
+
+OUTPUT (array of provision objects; JSON ONLY)
+Each object MUST have exactly these keys:
+
+{
+  "pdf_page": {{PDF_PAGE}},
+  "section_number": "string",                    // visible number/letter like "2", "2.d", "2.d.1"; "" if none
+  "section_title": "string",                     // short caption/label if present, else ""
+  "section_path": "string",                      // normalized hierarchical path (e.g., "Q_1.04", "Q_2.d.1")
+  "parent_section": "string|null",               // nearest visible ancestor (e.g., "2" or "2.d"); null at top
+  "local_ordinal": 0,                            // 0 if this node has a printed number/letter; else 1..N order among unlabeled siblings
+  "field_label": "string|null",                  // for field-like children (e.g., "Name", "TIN"), else null
+  "provision_text": "string",                    // verbatim; use \n\n between paragraphs
+  "evidence_snippet": "string",                  // first 120-200 chars of provision_text
+  "line_span": {"start": 0, "end": 0},          // visual line numbers on page (1-indexed)
+  "provision_type": "definition|operational|regulatory|unknown",
+  "status": "unanswered|answered|ambiguous|conflict|unknown",
+  "section_anchor_method": "direct|fallback|none",
+  "form_elements": [                             // omit or [] if none
+    {
+      "element_type": "checkbox|text",
+      "element_sequence": 1,                     // per-provision counter starting at 1
+      "is_selected": true|false|null,            // checkbox: true/false; text: null
+      "text_value": "string|null",               // text: string or null; checkbox: null
+      "confidence": 0.0-1.0
+    }
+  ]
+}
+
+RULES
+- JSON array only. No preface or trailing text. Do not paraphrase legal text.
+- Extract provisions that carry actual content; skip headers/footers/TOC and stand-alone headings with no sentences.
+- If the page contains instructions only and no provisions/form elements: return [].
+
+Hierarchy & Numbering
+- Use the **visible** numbering for section_number. Never invent letters/numbers.
+- If a node has no printed sub-number, set section_number="" and parent_section to the nearest printed ancestor.
+- For unlabeled children under the same parent, set local_ordinal=1..N by visual order; for printed-numbered nodes, local_ordinal=0.
+
+Section Path (NEW in v5.2 - for deterministic ID generation)
+- Normalized hierarchical path enabling stable provision IDs across re-extractions
+- Format: "Q_{MAJOR}.{MINOR}.{SUB}" or "Q_{MAJOR}.{LETTER}.{SUBLETTER}"
+- Examples: "Q_1.04", "Q_2.d", "Q_2.d.1", "Q_10.a.ii"
+- Rules:
+  * Prefix with "Q_" to distinguish AA elections from BPD provisions
+  * Preserve question numbering: "1.04" → "Q_1.04"
+  * Lowercase letters stay lowercase: "2.d" → "Q_2.d" (match printed format)
+  * Roman numerals preserved: "10.a.ii" → "Q_10.a.ii"
+  * If section_number is "", use nearest ancestor + ".UNK_{local_ordinal}"
+  * If no section visible, use "PAGE_{page_number}.UNK_{local_ordinal}"
+
+Evidence Snippet (NEW in v5.2 - quick verification)
+- First 120-200 characters of provision_text
+- Must be valid substring of provision_text
+- Prefer complete sentences; break at sentence boundary if possible
+- Remove extra whitespace, normalize to single line
+- Purpose: Reviewers can verify without reading full text
+
+Line Span (NEW in v5.2 - page-level anchoring)
+- {"start": N, "end": M} where N = first line, M = last line (1-indexed)
+- Count visible lines including whitespace, excluding headers/footers
+- If uncertain, provide best estimate (precision not critical)
+
+Section Anchor Method (NEW in v5.2 - audit transparency)
+- "direct" = section_number visible on this page
+- "fallback" = no section_number visible, used nearest ancestor + ordinal
+- "none" = no section structure visible, used page-based anchoring
+
+Atomic Field Rule (do not group)
+- Treat **each labeled line** like "Name: ____", "City: ____", "TIN: ____" as its **own child provision**:
+  • section_title = the label text (e.g., "Name")
+  • field_label = the same label
+  • one `text` form_element representing that blank/value
+- The parent (e.g., "EMPLOYER'S NAME, ADDRESS…") remains a provision that **does not** contain those child text fields; it anchors children via parent_section.
+
+Checkbox Options & Nesting
+- Every printed number/letter (e.g., "2", "2.d", "2.d.1") is a separate provision. Attach the checkbox for that line to that provision.
+- Combined options like "g. [ ] Other: ______" are **one provision** with two form_elements: a checkbox and a text field.
+
+Typing Heuristics
+- "means" → likely definition.
+- SHALL/MUST/MAY, schedules, formulas → operational.
+- Cites to Code/Regs (e.g., §401(a)(9)) → regulatory.
+- If uncertain, use "unknown".
+
+MINI EXAMPLES (illustrative; keep shape)
+
+// Split labeled fields under parent "1"
+[
+  {
+    "pdf_page": 2,
+    "section_number": "1",
+    "section_title": "EMPLOYER'S NAME, ADDRESS…",
+    "section_path": "Q_1",
+    "parent_section": null,
+    "local_ordinal": 0,
+    "field_label": null,
+    "provision_text": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR",
+    "evidence_snippet": "EMPLOYER'S NAME, ADDRESS, TELEPHONE NUMBER, TIN AND FISCAL YEAR",
+    "line_span": {"start": 8, "end": 10},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "direct",
+    "form_elements": []
+  },
+  {
+    "pdf_page": 2,
+    "section_number": "",
+    "section_title": "Name",
+    "section_path": "Q_1.UNK_1",
+    "parent_section": "1",
+    "local_ordinal": 1,
+    "field_label": "Name",
+    "provision_text": "Name: ____________________",
+    "evidence_snippet": "Name: ____________________",
+    "line_span": {"start": 11, "end": 11},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "fallback",
+    "form_elements": [
+      {"element_type":"text","element_sequence":1,"is_selected":null,"text_value":null,"confidence":0.97}
+    ]
+  },
+  {
+    "pdf_page": 2,
+    "section_number": "",
+    "section_title": "City, State, Zip",
+    "section_path": "Q_1.UNK_2",
+    "parent_section": "1",
+    "local_ordinal": 2,
+    "field_label": "City, State, Zip",
+    "provision_text": "City, State, Zip: ____________________",
+    "evidence_snippet": "City, State, Zip: ____________________",
+    "line_span": {"start": 12, "end": 12},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "fallback",
+    "form_elements": [
+      {"element_type":"text","element_sequence":1,"is_selected":null,"text_value":null,"confidence":0.97}
+    ]
+  }
+]
+
+// Nested checkboxes 2.d → 2.d.1 (with enhanced provenance)
+[
+  {
+    "pdf_page": 5,
+    "section_number": "2",
+    "section_title": "Type of Entity",
+    "section_path": "Q_2",
+    "parent_section": null,
+    "local_ordinal": 0,
+    "field_label": null,
+    "provision_text": "Type of Entity",
+    "evidence_snippet": "Type of Entity",
+    "line_span": {"start": 15, "end": 15},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "direct",
+    "form_elements": []
+  },
+  {
+    "pdf_page": 5,
+    "section_number": "2.d",
+    "section_title": "",
+    "section_path": "Q_2.d",
+    "parent_section": "2",
+    "local_ordinal": 0,
+    "field_label": null,
+    "provision_text": "Limited Liability Company taxed as:",
+    "evidence_snippet": "Limited Liability Company taxed as:",
+    "line_span": {"start": 20, "end": 20},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "direct",
+    "form_elements": [
+      {"element_type":"checkbox","element_sequence":1,"is_selected":false,"text_value":null,"confidence":0.95}
+    ]
+  },
+  {
+    "pdf_page": 5,
+    "section_number": "2.d.1",
+    "section_title": "",
+    "section_path": "Q_2.d.1",
+    "parent_section": "2.d",
+    "local_ordinal": 0,
+    "field_label": null,
+    "provision_text": "a partnership or sole proprietorship",
+    "evidence_snippet": "a partnership or sole proprietorship",
+    "line_span": {"start": 21, "end": 21},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "direct",
+    "form_elements": [
+      {"element_type":"checkbox","element_sequence":1,"is_selected":false,"text_value":null,"confidence":0.95}
+    ]
+  },
+  {
+    "pdf_page": 5,
+    "section_number": "2.d.2",
+    "section_title": "",
+    "section_path": "Q_2.d.2",
+    "parent_section": "2.d",
+    "local_ordinal": 0,
+    "field_label": null,
+    "provision_text": "a corporation",
+    "evidence_snippet": "a corporation",
+    "line_span": {"start": 22, "end": 22},
+    "provision_type": "operational",
+    "status": "unanswered",
+    "section_anchor_method": "direct",
+    "form_elements": [
+      {"element_type":"checkbox","element_sequence":1,"is_selected":false,"text_value":null,"confidence":0.95}
+    ]
+  }
+]
+
+Final reminder: Extract substantive provisions with complete provenance. Return JSON array only.

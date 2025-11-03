@@ -1,0 +1,31 @@
+{
+  "version": "0.1",
+  "operators": [
+    {
+      "id": "replicate_across_dimension",
+      "when": {
+        "source.shape": "scalar_numeric",
+        "source.dimension_hits.contribution_type.length>": 1
+      },
+      "effect": "Emit multiple canonical nodes (one per contribution_type) with identical scalar value/constraint."
+    },
+    {
+      "id": "bind_dimension_value",
+      "when": { "source.shape": "array_by_dimension" },
+      "effect": "For each per-type row or checkbox+textbox, bind {dimension_values: {contribution_type: <type>}} on the emitted node."
+    },
+    {
+      "id": "gate_by_toggle",
+      "when": { "source.shape": "toggle_plus_detail" },
+      "effect": "Create dependency bundle: parent controls whether child detail nodes are required/active."
+    },
+    {
+      "id": "aggregate_or_cap",
+      "when": {
+        "source.value_hints": ["percent", "dollars"],
+        "source.label_tokens~": "maximum|cap|not to exceed"
+      },
+      "effect": "Normalize to contributions.match.max.* with appropriate units."
+    }
+  ]
+}

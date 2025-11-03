@@ -1,0 +1,244 @@
+{
+  "test_date": "2025-11-03",
+  "approach": "AA-driven V2 (hybrid: cleaning + option structure)",
+  "embedding_model": "text-embedding-3-small",
+  "num_test_cases": 4,
+  "num_target_elections": 550,
+  "improvements": [
+    "Removed option labels (a., f., etc.)",
+    "Removed instructions ((select one), etc.)",
+    "Removed BPD section references",
+    "Added option structure summary"
+  ],
+  "summary": {
+    "avg_top_similarity": 0.7961785086863826,
+    "high_confidence_count": 0,
+    "high_confidence_pct": 0.0
+  },
+  "results": [
+    {
+      "test_name": "Eligibility (Age 21)",
+      "source_question": "1.03",
+      "source_context": "Eligibility Conditions",
+      "source_text": "f. Age 21",
+      "source_enriched_v2": "[DOMAIN: Eligibility Conditions] | Age 21 | Options: All Contributions, Elective Deferrals/SH, Matching, Nonelective",
+      "top_match": {
+        "id": "election_p003_seq01",
+        "similarity": 0.8367391882339588,
+        "question": "1.01",
+        "context": "Article II - Eligibility and Contribution Timing",
+        "text": "The following age shall apply (select and complete all that apply):"
+      },
+      "all_matches": [
+        {
+          "rank": 1,
+          "id": "election_p003_seq01",
+          "similarity": 0.8367391882339588,
+          "question": "1.01",
+          "context": "Article II - Eligibility and Contribution Timing",
+          "text": "The following age shall apply (select and complete all that apply):"
+        },
+        {
+          "rank": 2,
+          "id": "election_p002_seq03",
+          "similarity": 0.8315348867016745,
+          "question": "2.03",
+          "context": "SECTION TWO: ELIGIBILITY Complete Parts A through F",
+          "text": "Age Requirement"
+        },
+        {
+          "rank": 3,
+          "id": "election_p056_seq01",
+          "similarity": 0.8032718658380539,
+          "question": "1.01",
+          "context": "Section Two: Eligibility",
+          "text": "Age Requirement. An Employee will be eligible to become a Participant in the Plan for purposes of becoming a Contributing Participant (and thus eligible to make Elective Deferrals), receiving Matching Contributions, or receiving an allocation of any Employer Profit Sharing Contributions, Safe Harbor Contributions and Qualified Nonelective Contributions, as applicable, made pursuant to Section Three of this Participating Employer Election Attachment, after attaining the following age (select one):"
+        },
+        {
+          "rank": 4,
+          "id": "election_p057_seq02",
+          "similarity": 0.7666922478405162,
+          "question": "57.02",
+          "context": "Article III - Contributions",
+          "text": "After completing 1 Year of Eligibility Service (Period of Service, if applicable) (select all that apply):"
+        },
+        {
+          "rank": 5,
+          "id": "election_p057_seq04",
+          "similarity": 0.7659550699945463,
+          "question": "57.04",
+          "context": "Article III - Contributions",
+          "text": "Other. If this option is selected, an Employee will be eligible to become a Participant in the Plan for purposes of the following contributions after completing the following requirements (select and complete all that apply):"
+        }
+      ]
+    },
+    {
+      "test_name": "Service Crediting (BPD Ref)",
+      "source_question": "17.01",
+      "source_context": "Non-Standardized Defined Contribution",
+      "source_text": "SERVICE CREDITING METHOD (Plan Sections 1.62 and 1.88)",
+      "source_enriched_v2": "[DOMAIN: Non-Standardized Defined Contribution] | SERVICE CREDITING METHOD | Options: Elapsed time method. (Period of Service applies instead of Year of Service) Instead of Hours of Service, elapsed time will be used for:, Alternative definitions for the Hours of Service method. Instead of the defaults, the following alternatives will apply for the Hours of Service method (select one or more):, Equivalency method. Instead of using actual Hours of Service, an equivalency method will be used to determine Hours of Service for:, Number of Hours of Service required. Instead of 1,000 Hours of Service, Year of Service means the applicable computation period during which an Employee has completed at least ______ (not to exceed 1,000) Hours of Service for:, other: __________ (e.g., option f. is used for per-diem Employees only)",
+      "top_match": {
+        "id": "election_p042_seq04",
+        "similarity": 0.8174500285423904,
+        "question": "E.01",
+        "context": "Part E - Method of Determining Service",
+        "text": "Service for purposes of determining eligibility to participate in the Plan will be determined on the basis of (select one):"
+      },
+      "all_matches": [
+        {
+          "rank": 1,
+          "id": "election_p042_seq04",
+          "similarity": 0.8174500285423904,
+          "question": "E.01",
+          "context": "Part E - Method of Determining Service",
+          "text": "Service for purposes of determining eligibility to participate in the Plan will be determined on the basis of (select one):"
+        },
+        {
+          "rank": 2,
+          "id": "election_p096_seq02",
+          "similarity": 0.8109859632851476,
+          "question": "96.02",
+          "context": "Part D - Method of Determining Service",
+          "text": "1. Service for purposes of determining eligibility to participate in the Plan will be determined on the basis of (select one):"
+        },
+        {
+          "rank": 3,
+          "id": "election_p001_seq47",
+          "similarity": 0.7663853413339958,
+          "question": "E.01",
+          "context": "Part E - Service Required for Vesting Purposes",
+          "text": "Service Required for Vesting Purposes (Select one.):"
+        },
+        {
+          "rank": 4,
+          "id": "election_p009_seq01",
+          "similarity": 0.702668784502628,
+          "question": "1.01",
+          "context": "Part D - Service Required for Eligibility Purposes",
+          "text": "Service Required for Eligibility Purposes (Select one)"
+        },
+        {
+          "rank": 5,
+          "id": "election_p062_seq02",
+          "similarity": 0.6932219386428496,
+          "question": "62.02",
+          "context": "Part D - Service Required for Eligibility Purposes",
+          "text": "Part D. Service Required for Eligibility Purposes (Select one):"
+        }
+      ]
+    },
+    {
+      "test_name": "Vesting (BPD Ref)",
+      "source_question": "18",
+      "source_context": "VESTING",
+      "source_text": "VESTING OF PARTICIPANT'S INTEREST (Plan Section 6.4(b))",
+      "source_enriched_v2": "[DOMAIN: VESTING] | VESTING OF PARTICIPANT'S INTEREST (Plan Section 6.4(b)) | Options: N/A (no Employer Nonelective Contributions (other than \"prevailing wage contributions\") (for 401(k) plans, also no matching contributions or QACA \"ADP test safe harbor contributions\") (skip to Question 20), The vesting provisions selected below apply to all Participants unless otherwise selected below. In addition, option I. under Section B of Appendix A to the Adoption Agreement (Special Effective Dates and Other Permitted Elections) can be used to specify any exceptions to the provisions below., Vesting waiver. Employees who were employed on the date(s) indicated below and were Participants as of such date are 100% Vested. For Participants who enter the Plan after such date, the vesting provisions selected below apply (leave blank if no waiver applies):, [ ] For all contributions. The vesting waiver applies to all contributions if employed on ______ (enter date), [ ] For designated contributions. The vesting waiver applies to (select one or more):, ... (24 total options)",
+      "top_match": {
+        "id": "election_p001_seq48",
+        "similarity": 0.7502389144719408,
+        "question": "F.01",
+        "context": "Part F - Exclusion of Service for Vesting",
+        "text": "Exclusion of Service for Vesting (select all that apply):"
+      },
+      "all_matches": [
+        {
+          "rank": 1,
+          "id": "election_p001_seq48",
+          "similarity": 0.7502389144719408,
+          "question": "F.01",
+          "context": "Part F - Exclusion of Service for Vesting",
+          "text": "Exclusion of Service for Vesting (select all that apply):"
+        },
+        {
+          "rank": 2,
+          "id": "election_p032_seq02",
+          "similarity": 0.7454146140373682,
+          "question": "B.02",
+          "context": "Part B - Vesting Schedule for Employer Profit Sharing Contributions",
+          "text": "1 Year of Vesting Service"
+        },
+        {
+          "rank": 3,
+          "id": "election_p032_seq03",
+          "similarity": 0.740175212315932,
+          "question": "B.03",
+          "context": "Part B - Vesting Schedule for Employer Profit Sharing Contributions",
+          "text": "2 Years of Vesting Service"
+        },
+        {
+          "rank": 4,
+          "id": "election_p032_seq04",
+          "similarity": 0.7389491247044495,
+          "question": "B.04",
+          "context": "Part B - Vesting Schedule for Employer Profit Sharing Contributions",
+          "text": "3 Years of Vesting Service"
+        },
+        {
+          "rank": 5,
+          "id": "election_p032_seq01",
+          "similarity": 0.7384835374889024,
+          "question": "B.01",
+          "context": "Part B - Vesting Schedule for Employer Profit Sharing Contributions",
+          "text": "Less than One Year of Vesting Service"
+        }
+      ]
+    },
+    {
+      "test_name": "Top-Heavy",
+      "source_question": "33.01",
+      "source_context": "TOP-HEAVY MINIMUM ALLOCATION",
+      "source_text": "Top-Heavy Minimum Allocation (select one):",
+      "source_enriched_v2": "[DOMAIN: TOP-HEAVY MINIMUM ALLOCATION] | Top-Heavy Minimum Allocation | Options: The Top-Heavy minimum will be provided to both Key and Non-Key Employee Participants.",
+      "top_match": {
+        "id": "election_p082_seq04",
+        "similarity": 0.7802859034972408,
+        "question": "3.02",
+        "context": "Section 3 - Top-Heavy Contributions",
+        "text": "b. Participants Entitled to Receive Minimum Allocation - If any minimum allocation required pursuant to Plan Section 3.04(E) is not satisfied with other allowable contribution sources, the remaining minimum allocation required pursuant to Plan Section 3.04(E) will be allocated to the Individual Accounts of (select one):"
+      },
+      "all_matches": [
+        {
+          "rank": 1,
+          "id": "election_p082_seq04",
+          "similarity": 0.7802859034972408,
+          "question": "3.02",
+          "context": "Section 3 - Top-Heavy Contributions",
+          "text": "b. Participants Entitled to Receive Minimum Allocation - If any minimum allocation required pursuant to Plan Section 3.04(E) is not satisfied with other allowable contribution sources, the remaining minimum allocation required pursuant to Plan Section 3.04(E) will be allocated to the Individual Accounts of (select one):"
+        },
+        {
+          "rank": 2,
+          "id": "election_p028_seq04",
+          "similarity": 0.7578446255313653,
+          "question": "3.02",
+          "context": "Article III - Contributions",
+          "text": "Top-Heavy Contributions - b. Participants Entitled to Receive Minimum Allocation. If any minimum allocation required pursuant to Plan Section 3.04(E) is not satisfied with other allowable contribution sources, the remaining minimum allocation required pursuant to Plan Section 3.04(E) will be allocated to the Individual Accounts of (select one):"
+        },
+        {
+          "rank": 3,
+          "id": "election_p028_seq03",
+          "similarity": 0.7211500342548792,
+          "question": "3.01",
+          "context": "Article III - Contributions",
+          "text": "Top-Heavy Contributions - a. Minimum Allocation or Benefit. For any Plan Year with respect to which this Plan is a Top-Heavy Plan, any minimum allocation required pursuant to Plan Section 3.04(E) will be made (select one)?"
+        },
+        {
+          "rank": 4,
+          "id": "election_p082_seq03",
+          "similarity": 0.7089087016163315,
+          "question": "3.01",
+          "context": "Section 3 - Top-Heavy Contributions",
+          "text": "a. Minimum Allocation or Benefit - For any Plan Year with respect to which this Plan is a Top-Heavy Plan, any minimum allocation required pursuant to Plan Section 3.04(E) will be made (select one):"
+        },
+        {
+          "rank": 5,
+          "id": "election_p076_seq08",
+          "similarity": 0.6815501148477398,
+          "question": "76.08",
+          "context": "A. Minimum Allocation Requirements > Suboption (c)",
+          "text": "Suboption (c): Provide each non-Highly Compensated Employee with a minimum allocation equal to the lesser of the amount described in Suboption (a) or Suboption (b) above."
+        }
+      ]
+    }
+  ]
+}
