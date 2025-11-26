@@ -18,6 +18,7 @@ AI-assisted tooling to map 401(k) Basic Plan Documents (BPD) and Adoption Agreem
 - Example source/target plan documents for experiments live under:
   - `sample_docs/source/` (e.g., Relius BPD/AA)
   - `sample_docs/target/` (e.g., Ascensus BPD/AA)
+- These are client-provided artifacts and are **not tracked in git**; keep them local.
 
 ## Getting oriented
 1) Skim `docs/roadmap.md` for the current plan.
