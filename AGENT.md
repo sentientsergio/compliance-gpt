@@ -16,3 +16,11 @@ Use this file to rehydrate context between sessions and keep lightweight notes a
 - During the phase, log findings, decisions, and deviations from plan.
 - Before moving forward, review evidence against the criteria and record a short “phase exit” note.
 - Capture per-phase learnings for the whitepaper (what worked, what broke, what we’d change).
+
+## Phase 1 kick-off (Ingestion & Layout) – 2024-XX-XX
+- Goals: choose a layout-extraction engine; define the normalized layout JSON (blocks, headings, tables, checkboxes, page/page-ranges); handle section stitching across pages.
+- Success criteria:
+  - Documented internal layout schema checked in.
+  - Selected extractor(s) with a short rationale and runbook.
+  - Dry run on local sample docs completes end-to-end to produce normalized output (kept local; not committed).
+- Evidence to collect: schema file/path, extractor choice note, and a brief run log/summary in this AGENT file for phase exit.

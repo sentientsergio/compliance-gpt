@@ -24,6 +24,7 @@ This document captures the current working plan for building an AI-assisted mapp
    - Stand up a pluggable document-AI layer (e.g., Azure Document Intelligence, Google DocAI, Textract).
    - Normalize output to a common layout JSON (blocks, headings, tables, checkboxes, page ranges).
    - Stitch logical sections across page breaks.
+   - Phase success criteria: schema file checked in; extractor choice and runbook documented; dry run on local sample docs producing normalized output (kept local).
 3. **Canonical Schema**
    - Define a vendor-neutral JSON schema with explicit contribution-type granularity (deferral/match/profit sharing) and clear IDs/breadcrumbs.
 4. **Extraction to Canonical (per vendor)**
