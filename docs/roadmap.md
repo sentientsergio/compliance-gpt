@@ -28,6 +28,8 @@ This document captures the current working plan for building an AI-assisted mapp
    - Status: completed (Azure DI prebuilt-layout, schema/runbook in docs, runs in `tmp/layout*`).
 3. **Canonical Schema**
    - Define a vendor-neutral JSON schema with explicit contribution-type granularity (deferral/match/profit sharing) and clear IDs/breadcrumbs.
+   - Phase success criteria: schema file checked in; contribution-type splits defined; ontology covers the initial 10 POC provisions.
+   - Include segmentation design to stitch layout atoms into provision units (section/subsection grouping, cross-page handling).
 4. **Extraction to Canonical (per vendor)**
    - Retrieval: hierarchy/vision anchors + hybrid search to gather candidates.
    - LLM extraction: fill canonical fields from text/table cells with provenance.

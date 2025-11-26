@@ -36,3 +36,11 @@ Use this file to rehydrate context between sessions and keep lightweight notes a
 - Notes:
   - Upgraded to S0 to bypass the 4MB limit on ascensus AA.
   - Provision-level units remain a next-phase task; current outputs are layout atoms with provenance.
+
+## Phase 2 kick-off (Canonical Schema & Provision Segmentation) – 2024-11-26
+- Goals: define the vendor-neutral canonical schema (with contribution-type granularity) and design the segmentation logic to group layout atoms into plan provisions.
+- Success criteria:
+  - Canonical schema documented and checked in (fields, IDs/breadcrumbs, contribution-type splits, ontology for the 10 POC provisions).
+  - Segmentation approach documented (rules/heuristics for stitching blocks/tables into provision units; handling cross-page sections).
+  - Optional: a small sample mapping from layout atoms → canonical schema for 1–2 provisions per document (to validate feasibility).
+- Evidence to collect: schema file/path, segmentation notes, and a brief run/sample in `AGENT.md` when ready for phase exit.
