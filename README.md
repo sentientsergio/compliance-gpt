@@ -25,6 +25,9 @@ AI-assisted tooling to map 401(k) Basic Plan Documents (BPD) and Adoption Agreem
 - Extraction runbook and extractor choices: `docs/extraction_runbook.md`
 - Redacted outputs: use `scripts/extract_layout.py --redact-text` if committing sample layout JSON; keep raw client-derived text private.
 
+## Pipeline overview
+- Current steps and usage: `PIPELINE.md`
+
 ## Getting oriented
 1) Skim `docs/roadmap.md` for the current plan.
 2) Read the `context/` files if you need the rationale and POC findings.
