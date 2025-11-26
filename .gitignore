@@ -3,3 +3,6 @@ sample_docs/
 
 # Local outputs / scratch
 tmp/
+
+# OS/editor noise
+.DS_Store

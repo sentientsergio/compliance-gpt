@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Draft canonical extractor: deterministically map provision chunks to a subset of canonical fields.
-Heuristic-only (no LLMs); uses keyword scoring and simple regexes to extract values and provenance.
+Draft canonical extractor: map provision chunks to canonical fields.
+Heuristic layer with optional semantic ranking via OpenAI embeddings.
 
 Targets (initial):
 - eligibility.age (deferrals/match/profit_sharing)
@@ -28,12 +28,29 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+try:
+    import openai  # type: ignore
+except Exception:
+    openai = None
+
+USE_EMB = False
+EMB_MODEL = "text-embedding-3-small"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Heuristic canonical extraction from provision JSON.")
     parser.add_argument("--provisions", required=True, help="Path to provisions JSON (from segment_provisions).")
     parser.add_argument("--out", required=True, help="Output path for canonical JSON.")
     parser.add_argument("--doc-id", help="Override doc_id for output (defaults to provisions doc).")
+    parser.add_argument(
+        "--use-openai-embeddings",
+        action="store_true",
+        help="Enable semantic ranking with OpenAI embeddings (requires OPENAI_API_KEY).",
+    )
+    parser.add_argument(
+        "--openai-model",
+        default="text-embedding-3-small",
+        help="OpenAI embedding model to use when --use-openai-embeddings is set.",
+    )
     return parser.parse_args()
 
 
@@ -55,9 +72,54 @@ def text_blob(prov: Dict[str, Any]) -> str:
     return " ".join(parts).lower()
 
 
+def clean_for_embedding(text: str) -> str:
+    text = re.sub(r"^[0-9.\\-\\s]+", "", text)
+    return text
+
+
 def score_provision(prov: Dict[str, Any], keywords: List[str]) -> int:
     blob = text_blob(prov)
     return sum(blob.count(k.lower()) for k in keywords)
+
+
+def embed_texts(texts: List[str], model: str) -> List[List[float]]:
+    client = openai.OpenAI()
+    res = client.embeddings.create(model=model, input=texts)
+    return [item.embedding for item in res.data]
+
+
+def cosine(a: List[float], b: List[float]) -> float:
+    import math
+
+    dot = sum(x * y for x, y in zip(a, b))
+    na = math.sqrt(sum(x * x for x in a))
+    nb = math.sqrt(sum(y * y for y in b))
+    return dot / (na * nb + 1e-9)
+
+
+def semantic_best(
+    provisions: List[Dict[str, Any]],
+    query: str,
+    keywords: Optional[List[str]],
+    use_embeddings: bool,
+    model: str,
+    top_k: int = 50,
+) -> Optional[Dict[str, Any]]:
+    pool = provisions
+    if keywords:
+        pool = [p for p in pool if any(k.lower() in text_blob(p) for k in keywords)]
+    if not pool:
+        return None
+    if use_embeddings and openai:
+        texts = [clean_for_embedding(text_blob(p)) for p in pool[:top_k]]
+        embeddings = embed_texts([query] + texts, model)
+        query_emb = embeddings[0]
+        prov_embs = embeddings[1:]
+        scores = [(cosine(query_emb, emb), prov) for emb, prov in zip(prov_embs, pool[:top_k])]
+        scores.sort(key=lambda x: x[0], reverse=True)
+        return scores[0][1] if scores else None
+    # fallback: keyword score
+    return best_match(pool, keywords or [])
 
 
 def best_match(provisions: List[Dict[str, Any]], keywords: List[str]) -> Optional[Dict[str, Any]]:
@@ -87,7 +149,7 @@ def provenance_from(prov: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def extract_eligibility_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[Dict[str, Any]]]:
-    prov = best_match(provisions, ["eligibility", "age"])
+    prov = semantic_best(provisions, "eligibility age requirement", ["eligibility", "age"], USE_EMB, EMB_MODEL)
     if not prov:
         return None, None
     blob = text_blob(prov)
@@ -96,7 +158,7 @@ def extract_eligibility_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[
 
 
 def extract_eligibility_service(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[int], Optional[Dict[str, Any]]]:
-    prov = best_match(provisions, ["eligibility", "service"])
+    prov = semantic_best(provisions, "eligibility service requirement", ["eligibility", "service"], USE_EMB, EMB_MODEL)
     if not prov:
         return None, None, None
     blob = text_blob(prov)
@@ -106,7 +168,7 @@ def extract_eligibility_service(provisions: List[Dict[str, Any]]) -> Tuple[Optio
 
 
 def extract_entry_dates(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
-    prov = best_match(provisions, ["entry", "participation", "first day"])
+    prov = semantic_best(provisions, "plan entry dates for participation", ["entry", "participation", "first"], USE_EMB, EMB_MODEL)
     if not prov:
         return None, None
     # Heuristic: look for patterns like monthly, quarterly, first of month
@@ -127,7 +189,7 @@ def extract_entry_dates(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str]
 
 
 def extract_normal_retirement_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[int], Optional[Dict[str, Any]]]:
-    prov = best_match(provisions, ["normal retirement age", "retirement age"])
+    prov = semantic_best(provisions, "normal retirement age definition", ["retirement"], USE_EMB, EMB_MODEL)
     if not prov:
         return None, None, None
     blob = text_blob(prov)
@@ -137,7 +199,7 @@ def extract_normal_retirement_age(provisions: List[Dict[str, Any]]) -> Tuple[Opt
 
 
 def extract_comp_base(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
-    prov = best_match(provisions, ["compensation", "definition", "w-2", "3401", "415"])
+    prov = semantic_best(provisions, "compensation base definition", ["compensation"], USE_EMB, EMB_MODEL)
     if not prov:
         return None, None
     blob = text_blob(prov)
@@ -152,21 +214,21 @@ def extract_comp_base(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], 
 
 
 def extract_comp_exclusions(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    prov = best_match(provisions, ["compensation", "exclusion", "exclude"])
+    prov = semantic_best(provisions, "compensation exclusions", ["compensation"], USE_EMB, EMB_MODEL)
     if not prov:
         return None
     return {"provenance": provenance_from(prov)}
 
 
 def extract_loans(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    prov = best_match(provisions, ["loan"])
+    prov = semantic_best(provisions, "participant loans", ["loan"], USE_EMB, EMB_MODEL)
     if not prov:
         return None
     return {"enabled": True, "provenance": provenance_from(prov)}
 
 
 def extract_in_service(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    prov = best_match(provisions, ["in-service", "in service", "inservice"])
+    prov = semantic_best(provisions, "in-service distribution", ["in-service", "in service"], USE_EMB, EMB_MODEL)
     if not prov:
         return None
     blob = text_blob(prov)
@@ -175,7 +237,7 @@ def extract_in_service(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, A
 
 
 def find_provenance_for_keywords(provisions: List[Dict[str, Any]], keywords: List[str]) -> Optional[Dict[str, Any]]:
-    prov = best_match(provisions, keywords)
+    prov = semantic_best(provisions, " ".join(keywords), keywords, USE_EMB, EMB_MODEL)
     return provenance_from(prov) if prov else None
 
 
@@ -274,6 +336,11 @@ def main():
     doc_id, provisions = load_provisions(provisions_path)
     if args.doc_id:
         doc_id = args.doc_id
+    global USE_EMB, EMB_MODEL
+    USE_EMB = args.use_openai_embeddings and openai is not None
+    EMB_MODEL = args.openai_model
+    if args.use_openai_embeddings and openai is None:
+        print("WARNING: openai package not available; falling back to heuristic matching.")
     canonical = build_canonical(doc_id, provisions)
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
