@@ -27,3 +27,12 @@ Use this file to rehydrate context between sessions and keep lightweight notes a
 
 ## Phase 1 run log
 - 2024-11-26: Extractor in place (Azure Document Intelligence prebuilt-layout). Redacted runs completed for Relius BPD/AA and Ascensus BPD; initial Ascensus AA failed on F0 size limit, then S0 upgrade resolved it. Full-text runs completed for all four PDFs to `tmp/layout_full/`. Endpoint: `formrecog-sd-dev.cognitiveservices.azure.com` (key kept local). Pending: spot-check outputs, then phase exit review.
+
+## Phase 1 exit (Ingestion & Layout) – 2024-11-26
+- Success criteria met:
+  - Layout schema documented (`docs/layout_schema.md`).
+  - Extractor chosen and runbook documented (Azure DI prebuilt-layout; `docs/extraction_runbook.md`).
+  - Dry runs complete with normalized outputs (redacted and full text) in `tmp/layout/` and `tmp/layout_full/`.
+- Notes:
+  - Upgraded to S0 to bypass the 4MB limit on ascensus AA.
+  - Provision-level units remain a next-phase task; current outputs are layout atoms with provenance.
