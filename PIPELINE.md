@@ -22,6 +22,7 @@ This document traces the pipeline as currently implemented, with inputs, scripts
 ## Canonical schema (Phase 2 draft)
 - Document: `docs/canonical_schema.md` (POC provisions, contribution-type splits, provenance shape).
 - Segmentation design: `docs/segmentation_design.md` (how to group layout atoms into provision chunks before canonical mapping).
+- Segmentation script: `scripts/segment_provisions.py` to produce provision candidates from layout JSON.
 
 ## Next steps (planned)
 - Provision segmentation: group layout atoms into plan-level provisions, stitch across pages.
