@@ -24,6 +24,7 @@ This document traces the pipeline as currently implemented, with inputs, scripts
 - Segmentation design: `docs/segmentation_design.md` (how to group layout atoms into provision chunks before canonical mapping).
 - Segmentation script: `scripts/segment_provisions.py` to produce provision candidates from layout JSON.
 - Heuristic/semantic canonical extraction: `scripts/extract_canonical.py` maps provision candidates to POC canonical fields (eligibility age/service/entry, NRA, compensation base/exclusions, vesting provenance, loans, hardship, in-service) and emits draft canonical JSON under `tmp/canonical/`. Optional OpenAI embeddings (`--use-openai-embeddings`, `OPENAI_API_KEY`) improve selection.
+- Research references: `research/` (form-field alignment/checkbox mapping deep dives) informing label-linkage, multi-field embeddings, and high-precision AA mapping.
 
 ## Next steps (planned)
 - Provision segmentation: group layout atoms into plan-level provisions, stitch across pages.

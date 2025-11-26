@@ -44,3 +44,14 @@ Use this file to rehydrate context between sessions and keep lightweight notes a
   - Segmentation approach documented (rules/heuristics for stitching blocks/tables into provision units; handling cross-page sections).
   - Optional: a small sample mapping from layout atoms → canonical schema for 1–2 provisions per document (to validate feasibility).
 - Evidence to collect: schema file/path, segmentation notes, and a brief run/sample in `AGENT.md` when ready for phase exit.
+
+## Phase 2 current state (2024-11-26)
+- Added selection marks to layout schema/extraction (checkboxes/radios with state/bbox); reran AA layouts/segments/canonical drafts.
+- Canonical extractor supports optional OpenAI embedding ranking; provenance still noisy on some fields; values null in blank templates.
+- Research added in `research/` (form-field alignment, checkbox mapping) stressing: label–checkbox linkage, multi-field embeddings without numbering, structure-as-filter + semantic ranking, high-precision bias, AA electable focus.
+
+## Next-session to-do
+- Implement label association for selection marks (link checkboxes to nearby labels/table cells in layout JSON).
+- Focus on AA electables: use cleaned question/option text for embeddings, strip numbering; keep structure as filter only.
+- Tighten per-field filters (Eligibility/NRA/Comp/Vesting/Loans/Hardship/In-service) before semantic ranking; add low-confidence/gap reporting.
+- Rerun AA pipeline after label-linking; spot-check provenance on key nodes.
