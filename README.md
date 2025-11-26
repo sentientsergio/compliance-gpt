@@ -23,6 +23,7 @@ AI-assisted tooling to map 401(k) Basic Plan Documents (BPD) and Adoption Agreem
 ## Phase 1 pointers
 - Layout schema: `docs/layout_schema.md`
 - Extraction runbook and extractor choices: `docs/extraction_runbook.md`
+- Redacted outputs: use `scripts/extract_layout.py --redact-text` if committing sample layout JSON; keep raw client-derived text private.
 
 ## Getting oriented
 1) Skim `docs/roadmap.md` for the current plan.

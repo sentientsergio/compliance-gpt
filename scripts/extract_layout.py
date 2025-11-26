@@ -39,6 +39,11 @@ def parse_args() -> argparse.Namespace:
         default=os.getenv("AZURE_FORM_RECOGNIZER_KEY"),
         help="Azure Form Recognizer key (or set AZURE_FORM_RECOGNIZER_KEY).",
     )
+    parser.add_argument(
+        "--redact-text",
+        action="store_true",
+        help="If set, redact text content in the output (keep structure/bboxes).",
+    )
     return parser.parse_args()
 
 
@@ -51,13 +56,19 @@ def require_dependencies():
         sys.exit(1)
 
 
-def build_block(paragraph) -> Dict[str, Any]:
+def maybe_redact(text: Optional[str], redact: bool) -> Optional[str]:
+    if not text:
+        return text
+    return "[REDACTED]" if redact else text
+
+
+def build_block(paragraph, redact: bool) -> Dict[str, Any]:
     region = paragraph.bounding_regions[0] if paragraph.bounding_regions else None
     bbox = region.polygon if region else None
     return {
         "id": f"blk-{paragraph.spans[0].offset}" if paragraph.spans else None,
         "type": paragraph.role or "paragraph",
-        "text": paragraph.content,
+        "text": maybe_redact(paragraph.content, redact),
         "page": region.page_number if region else None,
         "bbox": polygon_to_bbox(bbox),
         "style": None,
@@ -72,7 +83,7 @@ def polygon_to_bbox(polygon: Optional[List[Any]]) -> Optional[List[float]]:
     return [min(xs), min(ys), max(xs), max(ys)]
 
 
-def build_table(table) -> Dict[str, Any]:
+def build_table(table, redact: bool) -> Dict[str, Any]:
     page_range = [table.bounding_regions[0].page_number, table.bounding_regions[-1].page_number] if table.bounding_regions else None
     rows: List[Dict[str, Any]] = []
     max_row = max(cell.row_index for cell in table.cells) if table.cells else -1
@@ -99,7 +110,7 @@ def build_table(table) -> Dict[str, Any]:
             {
                 "row_index": cell.row_index,
                 "col_index": cell.column_index,
-                "text": cell.content,
+                "text": maybe_redact(cell.content, redact),
                 "page": region.page_number if region else None,
                 "bbox": polygon_to_bbox(bbox),
                 "checkbox_state": None,
@@ -115,7 +126,7 @@ def build_table(table) -> Dict[str, Any]:
     }
 
 
-def build_sections(paragraphs, page_count: int) -> List[Dict[str, Any]]:
+def build_sections(paragraphs, page_count: int, redact: bool) -> List[Dict[str, Any]]:
     """Heuristic: treat each heading as a new section; if none, fall back to one section."""
     sections: List[Dict[str, Any]] = []
     current = None
@@ -134,7 +145,7 @@ def build_sections(paragraphs, page_count: int) -> List[Dict[str, Any]]:
                 "tables": [],
             }
         else:
-            block = build_block(para)
+            block = build_block(para, redact)
             if current:
                 current["blocks"].append(block)
                 # Update end page if needed
@@ -195,7 +206,7 @@ def attach_tables_to_sections(sections: List[Dict[str, Any]], tables: List[Dict[
 
 
 def analyze_document(
-    client: DocumentAnalysisClient, pdf_path: Path, doc_id: str, endpoint: str, key: str
+    client: DocumentAnalysisClient, pdf_path: Path, doc_id: str, endpoint: str, key: str, redact: bool
 ) -> Dict[str, Any]:
     with pdf_path.open("rb") as f:
         poller = client.begin_analyze_document("prebuilt-layout", document=f)
@@ -203,8 +214,8 @@ def analyze_document(
 
     paragraphs = result.paragraphs or []
     tables = result.tables or []
-    sections = build_sections(paragraphs, page_count=len(result.pages))
-    tables_normalized = [build_table(t) for t in tables]
+    sections = build_sections(paragraphs, page_count=len(result.pages), redact=redact)
+    tables_normalized = [build_table(t, redact=redact) for t in tables]
     attach_tables_to_sections(sections, tables_normalized)
 
     return {
@@ -236,7 +247,7 @@ def main():
         sys.exit(1)
     doc_id = args.doc_id or pdf_path.stem
 
-    result = analyze_document(client, pdf_path, doc_id, args.endpoint, args.key)
+    result = analyze_document(client, pdf_path, doc_id, args.endpoint, args.key, redact=args.redact_text)
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(result, indent=2))

@@ -28,6 +28,7 @@ Purpose: choose and operate a layout-aware extractor to produce normalized layou
   - Calls `begin_analyze_document("prebuilt-layout", ...)`.
   - Normalizes output to `docs/layout_schema.md` (sections via headings, blocks with bbox/page, tables with rows/cells and optional checkbox states).
   - Writes JSON to the provided `--out` path (e.g., `tmp/layout/<doc_id>.json`).
+  - Optional `--redact-text` flag to strip text content while preserving structure for publishable examples.
 
 ## Verification
 - Spot-check a few sections:
@@ -38,3 +39,6 @@ Purpose: choose and operate a layout-aware extractor to produce normalized layou
 ## Notes
 - Keep outputs in `tmp/` or similar; ensure paths are git-ignored.
 - If using a fallback extractor, note the model/version and known gaps in a short log in `AGENT.md`.
+- Publishing hygiene:
+  - Do not commit raw client PDFs.
+  - For shareable artifacts, prefer `--redact-text` or use synthetic docs; avoid committing full-text outputs containing client language or PII.
