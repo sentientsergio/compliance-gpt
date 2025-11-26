@@ -22,14 +22,12 @@ Purpose: choose and operate a layout-aware extractor to produce normalized layou
    - Repeat for other PDFs.
 4. Output: JSON conforming to `docs/layout_schema.md` stored under `tmp/layout/` (git-ignored).
 
-## Script outline (`scripts/extract_layout.py`, to be added in a later step)
-- Load PDF.
-- Call Azure `begin_analyze_document("prebuilt-layout", ...)`.
-- Transform SDK response into normalized schema:
-  - pages → sections inferred from headings,
-  - lines/paragraphs → blocks with bbox/page,
-  - tables → rows/cells with bbox/page and checkbox states when available.
-- Serialize to JSON.
+## Script
+- `scripts/extract_layout.py` (uses Azure prebuilt layout):
+  - Loads the PDF.
+  - Calls `begin_analyze_document("prebuilt-layout", ...)`.
+  - Normalizes output to `docs/layout_schema.md` (sections via headings, blocks with bbox/page, tables with rows/cells and optional checkbox states).
+  - Writes JSON to the provided `--out` path (e.g., `tmp/layout/<doc_id>.json`).
 
 ## Verification
 - Spot-check a few sections:
