@@ -19,6 +19,10 @@ This document traces the pipeline as currently implemented, with inputs, scripts
 - Full-text normalized layout JSON (git-ignored): `tmp/layout_full/*.json`
 - Redacted normalized layout JSON (git-ignored): `tmp/layout/*.json` (for publishing examples).
 
+## Canonical schema (Phase 2 draft)
+- Document: `docs/canonical_schema.md` (POC provisions, contribution-type splits, provenance shape).
+- Segmentation design: `docs/segmentation_design.md` (how to group layout atoms into provision chunks before canonical mapping).
+
 ## Next steps (planned)
 - Provision segmentation: group layout atoms into plan-level provisions, stitch across pages.
 - Canonical mapping: populate vendor-neutral schema and compare source vs target.
