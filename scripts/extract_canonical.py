@@ -6,8 +6,14 @@ Heuristic-only (no LLMs); uses keyword scoring and simple regexes to extract val
 Targets (initial):
 - eligibility.age (deferrals/match/profit_sharing)
 - eligibility.service (years/hours where obvious)
+- eligibility.entry_dates (provenance only)
+- retirement.normal_age (age or age+service)
+- compensation.base_definition (text/provenance)
+- compensation.exclusions (provenance)
 - vesting.schedule (provenance only)
+- loans.enabled (boolean + provenance)
 - distributions.hardship (provenance only)
+- distributions.in_service (provenance + optional age threshold)
 
 Inputs:
 - Provision JSON from scripts/segment_provisions.py
@@ -99,6 +105,75 @@ def extract_eligibility_service(provisions: List[Dict[str, Any]]) -> Tuple[Optio
     return years, hours, provenance_from(prov)
 
 
+def extract_entry_dates(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
+    prov = best_match(provisions, ["entry", "participation", "first day"])
+    if not prov:
+        return None, None
+    # Heuristic: look for patterns like monthly, quarterly, first of month
+    blob = text_blob(prov)
+    pattern = None
+    for key, label in [
+        ("monthly", "monthly"),
+        ("quarter", "quarterly"),
+        ("semi", "semi_annual"),
+        ("annual", "annual"),
+        ("payroll", "per_payroll"),
+        ("first day", "first_of_period"),
+    ]:
+        if key in blob:
+            pattern = label
+            break
+    return pattern, provenance_from(prov)
+
+
+def extract_normal_retirement_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[int], Optional[Dict[str, Any]]]:
+    prov = best_match(provisions, ["normal retirement age", "retirement age"])
+    if not prov:
+        return None, None, None
+    blob = text_blob(prov)
+    age = extract_int_in_range(blob, 50, 80)
+    svc = extract_int_in_range(blob, 0, 10)
+    return age, svc, provenance_from(prov)
+
+
+def extract_comp_base(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
+    prov = best_match(provisions, ["compensation", "definition", "w-2", "3401", "415"])
+    if not prov:
+        return None, None
+    blob = text_blob(prov)
+    definition = None
+    if "w-2" in blob:
+        definition = "W2"
+    elif "3401" in blob:
+        definition = "3401"
+    elif "415" in blob:
+        definition = "415_safe_harbor"
+    return definition, provenance_from(prov)
+
+
+def extract_comp_exclusions(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    prov = best_match(provisions, ["compensation", "exclusion", "exclude"])
+    if not prov:
+        return None
+    return {"provenance": provenance_from(prov)}
+
+
+def extract_loans(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    prov = best_match(provisions, ["loan"])
+    if not prov:
+        return None
+    return {"enabled": True, "provenance": provenance_from(prov)}
+
+
+def extract_in_service(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    prov = best_match(provisions, ["in-service", "in service", "inservice"])
+    if not prov:
+        return None
+    blob = text_blob(prov)
+    age = extract_int_in_range(blob, 50, 80)
+    return {"age_threshold": age, "provenance": provenance_from(prov)}
+
+
 def find_provenance_for_keywords(provisions: List[Dict[str, Any]], keywords: List[str]) -> Optional[Dict[str, Any]]:
     prov = best_match(provisions, keywords)
     return provenance_from(prov) if prov else None
@@ -132,6 +207,33 @@ def build_canonical(doc_id: str, provisions: List[Dict[str, Any]]) -> Dict[str, 
         }
     report["eligibility.service"] = "hit" if serv_prov else "miss"
 
+    # eligibility.entry_dates (provenance + pattern)
+    entry_pattern, entry_prov = extract_entry_dates(provisions)
+    if entry_prov:
+        plan["eligibility"]["entry_dates"] = {
+            "pattern": entry_pattern,
+            "provenance": entry_prov,
+        }
+    report["eligibility.entry_dates"] = "hit" if entry_prov else "miss"
+
+    # retirement.normal_age
+    nra_age, nra_svc, nra_prov = extract_normal_retirement_age(provisions)
+    if nra_prov:
+        plan["retirement"]["normal_age"] = {"age": nra_age, "service_years": nra_svc, "provenance": nra_prov}
+    report["retirement.normal_age"] = "hit" if nra_prov else "miss"
+
+    # compensation.base_definition
+    comp_def, comp_def_prov = extract_comp_base(provisions)
+    if comp_def_prov:
+        plan["compensation"]["base_definition"] = {"definition": comp_def, "provenance": comp_def_prov}
+    report["compensation.base_definition"] = "hit" if comp_def_prov else "miss"
+
+    # compensation.exclusions (provenance-only placeholder)
+    comp_excl = extract_comp_exclusions(provisions)
+    if comp_excl:
+        plan["compensation"]["exclusions"] = comp_excl
+    report["compensation.exclusions"] = "hit" if comp_excl else "miss"
+
     # vesting.schedule (provenance only for now)
     vest_prov = find_provenance_for_keywords(provisions, ["vesting"])
     if vest_prov:
@@ -140,6 +242,12 @@ def build_canonical(doc_id: str, provisions: List[Dict[str, Any]]) -> Dict[str, 
             "profit_sharing": {"provenance": vest_prov},
         }
     report["vesting.schedule"] = "hit" if vest_prov else "miss"
+
+    # loans.enabled (provenance-only)
+    loan_info = extract_loans(provisions)
+    if loan_info:
+        plan["loans"] = loan_info
+    report["loans.enabled"] = "hit" if loan_info else "miss"
 
     # distributions.hardship (provenance only)
     hardship_prov = find_provenance_for_keywords(provisions, ["hardship"])
@@ -150,6 +258,12 @@ def build_canonical(doc_id: str, provisions: List[Dict[str, Any]]) -> Dict[str, 
             "allowed_sources": None,
         }
     report["distributions.hardship"] = "hit" if hardship_prov else "miss"
+
+    # distributions.in_service (provenance + optional age threshold)
+    in_service = extract_in_service(provisions)
+    if in_service:
+        plan["distributions"]["in_service"] = in_service
+    report["distributions.in_service"] = "hit" if in_service else "miss"
 
     return {"doc_id": doc_id, "plan": plan, "report": report}
 
