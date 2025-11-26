@@ -20,6 +20,10 @@ AI-assisted tooling to map 401(k) Basic Plan Documents (BPD) and Adoption Agreem
   - `sample_docs/target/` (e.g., Ascensus BPD/AA)
 - These are client-provided artifacts and are **not tracked in git**; keep them local.
 
+## Phase 1 pointers
+- Layout schema: `docs/layout_schema.md`
+- Extraction runbook and extractor choices: `docs/extraction_runbook.md`
+
 ## Getting oriented
 1) Skim `docs/roadmap.md` for the current plan.
 2) Read the `context/` files if you need the rationale and POC findings.
