@@ -26,7 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--toc-pages",
         type=int,
-        default=2,
+        default=3,
         help="Number of initial pages to treat as TOC and skip content grouping.",
     )
     return parser.parse_args()
@@ -35,6 +35,9 @@ def parse_args() -> argparse.Namespace:
 def is_heading(block: Dict[str, Any]) -> bool:
     text = (block.get("text") or "").strip()
     btype = (block.get("type") or "").lower()
+    text_has_alpha = any(ch.isalpha() for ch in text)
+    if not text_has_alpha:
+        return False
     if btype in {"title", "sectionheading", "heading"}:
         return True
     return any(pat.search(text) for pat in HEADING_PATTERNS)

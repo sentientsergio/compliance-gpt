@@ -23,6 +23,7 @@ This document traces the pipeline as currently implemented, with inputs, scripts
 - Document: `docs/canonical_schema.md` (POC provisions, contribution-type splits, provenance shape).
 - Segmentation design: `docs/segmentation_design.md` (how to group layout atoms into provision chunks before canonical mapping).
 - Segmentation script: `scripts/segment_provisions.py` to produce provision candidates from layout JSON.
+- Heuristic canonical extraction (initial): `scripts/extract_canonical.py` maps provision candidates to a subset of canonical fields (eligibility age/service, vesting provenance, hardship provenance) and emits a draft canonical JSON under `tmp/canonical/`.
 
 ## Next steps (planned)
 - Provision segmentation: group layout atoms into plan-level provisions, stitch across pages.
