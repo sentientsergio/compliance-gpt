@@ -8,6 +8,7 @@ Purpose: a vendor-neutral representation of PDF structure used for provenance, s
 - `page_count`: integer.
 - `sections`: array of section nodes (see below).
 - `tables`: array of table objects not already nested under a section (optional if tables are embedded in sections).
+- `selection_marks`: array of selection mark objects (checkboxes/radios) with state and location.
 - `extraction_metadata`: tool/version/config.
 
 ## Section node
@@ -48,6 +49,13 @@ Purpose: a vendor-neutral representation of PDF structure used for provenance, s
 - `page`
 - `bbox`
 - `state`: `checked` | `unchecked` | `unknown`
+
+## Selection mark (top-level collection)
+- `id`: stable within document.
+- `page`: page number (1-based).
+- `bbox`: `[x0, y0, x1, y1]`.
+- `state`: `checked` | `unchecked` | `unknown`.
+- `polygon`: optional raw polygon from extractor (if available).
 
 ## Provenance helpers
 - Every block/table/cell should carry `page`/`page_range` and `bbox` when available.

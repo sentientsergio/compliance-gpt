@@ -29,6 +29,7 @@ Purpose: choose and operate a layout-aware extractor to produce normalized layou
   - Normalizes output to `docs/layout_schema.md` (sections via headings, blocks with bbox/page, tables with rows/cells and optional checkbox states).
   - Writes JSON to the provided `--out` path (e.g., `tmp/layout/<doc_id>.json`).
   - Optional `--redact-text` flag to strip text content while preserving structure for publishable examples.
+  - Captures selection marks (checkboxes/radios) with state + bbox under `selection_marks`.
 
 ## Verification
 - Spot-check a few sections:

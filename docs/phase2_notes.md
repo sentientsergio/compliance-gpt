@@ -12,6 +12,8 @@ Working log of experiments, issues, and decisions for Phase 2.
 - TOC bleed-through reduced but not eliminated by simple skips/heading rules.
 
 ## Decisions / next steps
+- Extend extraction to capture selection marks (checkboxes/radios) and form fields; normalize in layout schema.
+- Focus mapping on AA documents first (electable items); BPDs mainly provide context.
 - Add semantic retrieval on top of structural filters:
   - Use structure (headings/breadcrumbs/page range) only as a filter, not in embeddings.
   - Embed cleaned provision text (title/body/table text without numbering) and canonical queries; rank by cosine.

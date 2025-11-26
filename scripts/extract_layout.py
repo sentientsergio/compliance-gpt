@@ -218,12 +218,28 @@ def analyze_document(
     tables_normalized = [build_table(t, redact=redact) for t in tables]
     attach_tables_to_sections(sections, tables_normalized)
 
+    # selection marks (checkboxes/radios)
+    selection_marks: List[Dict[str, Any]] = []
+    for page in result.pages or []:
+        for mark in getattr(page, "selection_marks", []) or []:
+            poly = mark.polygon
+            selection_marks.append(
+                {
+                    "id": getattr(mark, "name", None) or None,
+                    "page": page.page_number,
+                    "bbox": polygon_to_bbox(poly),
+                    "state": getattr(mark, "state", None),
+                    "polygon": [[p.x, p.y] for p in poly] if poly else None,
+                }
+            )
+
     return {
         "document_id": doc_id,
         "file_name": pdf_path.name,
         "page_count": len(result.pages),
         "sections": sections,
         "tables": [],
+        "selection_marks": selection_marks,
         "extraction_metadata": {
             "tool": "azure_document_intelligence",
             "model": "prebuilt-layout",

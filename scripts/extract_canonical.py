@@ -103,11 +103,14 @@ def semantic_best(
     keywords: Optional[List[str]],
     use_embeddings: bool,
     model: str,
+    title_keywords: Optional[List[str]] = None,
     top_k: int = 50,
 ) -> Optional[Dict[str, Any]]:
     pool = provisions
     if keywords:
         pool = [p for p in pool if any(k.lower() in text_blob(p) for k in keywords)]
+    if title_keywords:
+        pool = [p for p in pool if any(k.lower() in (p.get("title") or "").lower() for k in title_keywords)]
     if not pool:
         return None
     if use_embeddings and openai:
@@ -149,7 +152,14 @@ def provenance_from(prov: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def extract_eligibility_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[Dict[str, Any]]]:
-    prov = semantic_best(provisions, "eligibility age requirement", ["eligibility", "age"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "eligibility age requirement for plan participation",
+        ["eligibility", "age"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["eligibility"],
+    )
     if not prov:
         return None, None
     blob = text_blob(prov)
@@ -158,7 +168,14 @@ def extract_eligibility_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[
 
 
 def extract_eligibility_service(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[int], Optional[Dict[str, Any]]]:
-    prov = semantic_best(provisions, "eligibility service requirement", ["eligibility", "service"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "eligibility service requirement",
+        ["eligibility", "service"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["eligibility"],
+    )
     if not prov:
         return None, None, None
     blob = text_blob(prov)
@@ -168,7 +185,14 @@ def extract_eligibility_service(provisions: List[Dict[str, Any]]) -> Tuple[Optio
 
 
 def extract_entry_dates(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
-    prov = semantic_best(provisions, "plan entry dates for participation", ["entry", "participation", "first"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "plan entry dates for participation",
+        ["entry", "participation"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["entry", "participation"],
+    )
     if not prov:
         return None, None
     # Heuristic: look for patterns like monthly, quarterly, first of month
@@ -189,7 +213,14 @@ def extract_entry_dates(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str]
 
 
 def extract_normal_retirement_age(provisions: List[Dict[str, Any]]) -> Tuple[Optional[int], Optional[int], Optional[Dict[str, Any]]]:
-    prov = semantic_best(provisions, "normal retirement age definition", ["retirement"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "normal retirement age definition",
+        ["retirement"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["normal retirement"],
+    )
     if not prov:
         return None, None, None
     blob = text_blob(prov)
@@ -199,7 +230,14 @@ def extract_normal_retirement_age(provisions: List[Dict[str, Any]]) -> Tuple[Opt
 
 
 def extract_comp_base(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], Optional[Dict[str, Any]]]:
-    prov = semantic_best(provisions, "compensation base definition", ["compensation"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "compensation base definition",
+        ["compensation"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["compensation"],
+    )
     if not prov:
         return None, None
     blob = text_blob(prov)
@@ -214,21 +252,42 @@ def extract_comp_base(provisions: List[Dict[str, Any]]) -> Tuple[Optional[str], 
 
 
 def extract_comp_exclusions(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    prov = semantic_best(provisions, "compensation exclusions", ["compensation"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "compensation exclusions",
+        ["compensation", "exclusion"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["compensation"],
+    )
     if not prov:
         return None
     return {"provenance": provenance_from(prov)}
 
 
 def extract_loans(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    prov = semantic_best(provisions, "participant loans", ["loan"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "participant loans",
+        ["loan"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["loan"],
+    )
     if not prov:
         return None
     return {"enabled": True, "provenance": provenance_from(prov)}
 
 
 def extract_in_service(provisions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    prov = semantic_best(provisions, "in-service distribution", ["in-service", "in service"], USE_EMB, EMB_MODEL)
+    prov = semantic_best(
+        provisions,
+        "in-service distribution",
+        ["in-service", "in service"],
+        USE_EMB,
+        EMB_MODEL,
+        title_keywords=["in-service", "in service"],
+    )
     if not prov:
         return None
     blob = text_blob(prov)
