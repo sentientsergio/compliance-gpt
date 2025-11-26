@@ -24,3 +24,6 @@ Use this file to rehydrate context between sessions and keep lightweight notes a
   - Selected extractor(s) with a short rationale and runbook.
   - Dry run on local sample docs completes end-to-end to produce normalized output (kept local; not committed).
 - Evidence to collect: schema file/path, extractor choice note, and a brief run log/summary in this AGENT file for phase exit.
+
+## Phase 1 run log
+- 2024-11-26: Extractor in place (Azure Document Intelligence prebuilt-layout). Redacted runs completed for Relius BPD/AA and Ascensus BPD; initial Ascensus AA failed on F0 size limit, then S0 upgrade resolved it. Full-text runs completed for all four PDFs to `tmp/layout_full/`. Endpoint: `formrecog-sd-dev.cognitiveservices.azure.com` (key kept local). Pending: spot-check outputs, then phase exit review.
